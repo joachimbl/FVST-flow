@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+<body>
+  <div id="app">
+  <v-app id="inspire">
+    <v-container>
+      <v-row
+        class="mb-6"
+        justify="center"
+        no-gutters
+      >
+        <v-col md="12"> 
+          <v-stepper v-model="e1">
+            <v-stepper-header>
+              <v-stepper-step :complete="e1 > 1" step="1">Start</v-stepper-step>
+
+              <v-divider></v-divider>
+
+              <v-stepper-step :complete="e1 > 2" step="2">Dine kunder</v-stepper-step>
+              
+              <v-stepper-step :complete="e1 > 3" step="3">Dine produkter</v-stepper-step>
+              
+              <v-stepper-step :complete="e1 > 4" step="4">Dine aktiviteter</v-stepper-step>
+
+              <v-divider></v-divider>
+
+              <v-stepper-step step="5">Resultat</v-stepper-step>
+            </v-stepper-header>
+
+            <v-stepper-items>
+              <v-stepper-content step="1">
+                <v-card
+                  class="mb-12 pa-10"
+                  flat
+                >
+                  <v-card-title>
+                    Passer en eller flere af følgende udsagn på din virksomhed?
+                  </v-card-title>
+                  <v-card-subtitle>
+                   
+                  </v-card-subtitle>
+                  <v-card-text>
+    
+                    <v-list-item two-line>
+                      <v-list-item-content>
+                        <v-list-item-title>Jeg sælger mad og drikke max 10 gange på et år.</v-list-item-title>
+                        <v-list-item-subtitle> F.eks via bod eller foodtruck til festivaller eller mindre events få dage ad gangen.</v-list-item-subtitle>
+                      </v-list-item-content>
+                    </v-list-item>
+                    
+                    <v-list-item two-line>
+                      <v-list-item-content>
+                        <v-list-item-title>Jeg har en virksomhed hvor fødevarer udgør max 50% af omsætningen og højest 50.000 kr. om året.</v-list-item-title>
+                        <v-list-item-subtitle> F.eks chokolade eller vin til værtsgaver, eller kaffe i en tøjbutik.</v-list-item-subtitle>
+                      </v-list-item-content>
+                    </v-list-item>
+                    
+                    <v-list-item two-line>
+                      <v-list-item-content>
+                        <v-list-item-title>Jeg serverer <strong>mindre måltider</strong> i en børneinstitution eller dagpleje.</v-list-item-title>
+                        <v-list-item-subtitle> F.eks som morgenmad, frisk frugt og drikkevarer. Gælder ikke fast frokostordning.</v-list-item-subtitle>
+                      </v-list-item-content>
+                    </v-list-item>
+                    
+                    <v-list-item two-line>
+                      <v-list-item-content>
+                        <v-list-item-title>Jeg sælger, leverer eller donerer mad fra mit private hjem til selskaber af 4-5 portioner om ugen.</v-list-item-title>
+                        <v-list-item-subtitle> F.eks. overskydende mad til naboen eller brød til arrangementer. </v-list-item-subtitle>
+                      </v-list-item-content>
+                    </v-list-item>
+                  
+                    <v-radio-group
+                      v-model="bagatel"
+                      column
+                    >
+                      <v-radio
+                        label="Ja, en eller flere udsagn passer til min virksomhed"
+                        value="true"
+                      ></v-radio>
+                      <v-radio
+                        label="Nej, ingen udsagn passer til min virksomhed"
+                        value="false"
+                      ></v-radio>
+                      
+                    </v-radio-group>
+                    
+                 </v-card-text>
+                   
+                 <v-card-actions>
+           
+                   <v-btn
+                      color="primary"
+                      @click="e1 = 2"
+                      v-if="bagatel == 'false'"
+                    >
+                      Videre
+                    </v-btn>
+                   <v-btn
+                      color="primary"
+                      @click="e1 = 5"
+                      v-if="bagatel == 'true'"
+                    >
+                      Videre
+                    </v-btn>
+                 </v-card-actions>
+                  
+                </v-card>
+                
+
+                
+
+              </v-stepper-content>
+
+              <v-stepper-content step="2">
+             
+                <v-card
+                  class="mb-12 pa-10"
+                  flat
+                >
+                  <v-card-title>
+                    Hvem sælger du til?
+                  </v-card-title>
+                  <v-card-subtitle>
+                    Vælg gerne flere
+                  </v-card-subtitle>
+                  <v-card-text>
+                  
+                    <v-checkbox
+                     v-model="client_b2c"
+                    label="Den almindelige forbruger"
+                  ></v-checkbox>
+
+                    <v-checkbox
+                    v-model="client_b2b"
+                    label="Virksomheder"
+                  ></v-checkbox>
+                 </v-card-text>
+                   
+                 <v-card-actions>
+                   <v-btn
+                      color="primary"
+                      @click="e1 = 3"
+                      :disabled="!client_b2b && !client_b2c"
+                    >
+                      Videre
+                    </v-btn>
+                 </v-card-actions>
+                  
+                </v-card>
+                
+
+                <v-btn text @click="e1 = 1">Forfra</v-btn>
+              </v-stepper-content>
+              
+              <v-stepper-content step="3">
+             
+                <v-card
+                  class="mb-12 pa-10"
+                  flat
+                >
+                  <v-card-title>
+                    Hvad sælger du?
+                  </v-card-title>
+                  <v-card-subtitle>
+                    Vælg gerne flere
+                  </v-card-subtitle>
+                  <v-card-text>
+
+                    <v-checkbox
+                    v-model="product_restaurant"
+                    label="Jeg skal sælge mad og drikke på restaurant, kantine, i café eller take-away."
+                  ></v-checkbox>
+                    
+                    <v-checkbox
+                    v-model="product_bagvaerk"
+                    label="Jeg skal hovedsagelig bage og lave kager."
+                  ></v-checkbox>
+                    
+                    <v-checkbox
+                    v-model="product_faerdigpakket"
+                    label="Jeg skal udelukkende sælge færdigpakkede fødevarer som ex. slik og is."
+                  ></v-checkbox>
+           
+                    
+                     <v-checkbox
+                    v-model="product_buffet"
+                    label="Jeg skal lave buffet"
+                  ></v-checkbox>
+                  
+                     <v-checkbox
+                    v-model="product_emballage"
+                    label="Jeg skal sælge emballage, keramik eller andet som skal i kontakt med fødevarer"
+                  ></v-checkbox>
+                    
+                     <v-checkbox
+                    v-model="product_egenavl"
+                    label="Jeg skal sælge fødevarer jeg selv har avlet, sanket eller fisket. Fx bær, svampe, honning, fisk eller æg."
+                  ></v-checkbox>
+                    
+                     <v-checkbox
+                    v-model="product_nytprodukt"
+                    label="Jeg skal producere eller markedsføre et produkt som ikke allerede er på markedet."
+                  ></v-checkbox>
+                    
+                     <v-checkbox
+                    v-model="product_stalddoer"
+                    label="Jeg skal sælge produkter i egen gårdbutik."
+                  ></v-checkbox>
+                    
+                     <v-checkbox
+                    v-model="product_internet"
+                    label="Jeg skal sælge fødevarer via internettet."
+                  ></v-checkbox>
+                    
+                  <v-checkbox
+                    v-model="product_alkohol"
+                    label="Jeg skal sælge vin, spiritus eller andre drikke med alkohol"
+                  ></v-checkbox>
+                    
+                  <v-checkbox
+                    v-model="product_oekologi"
+                    label="Jeg skal sælge økologiske fødevarer."
+                  ></v-checkbox>
+                    
+                  <v-checkbox
+                    v-model="product_kosttilskud"
+                    label="Jeg skal importere, producere og/eller sælge kosttilskud."
+                  ></v-checkbox>
+                    
+                 </v-card-text>
+                   
+                 <v-card-actions>
+                   <v-btn
+                      color="primary"
+                      @click="e1 = 4"
+                    >
+                      Videre
+                    </v-btn>
+                 </v-card-actions>
+                  
+                </v-card>
+                
+
+                <v-btn text @click="e1 = 1">Forfra</v-btn>
+              </v-stepper-content>
+              
+              <v-stepper-content step="4">
+             
+                <v-card
+                  class="mb-12 pa-10"
+                  flat
+                >
+                  <v-card-title>
+                    Hvilke aktiviteter passer på dine virksomhed
+                  </v-card-title>
+                  <v-card-subtitle>
+                    Vælg gerne flere
+                  </v-card-subtitle>
+                  <v-card-text>
+
+                    <v-checkbox
+                    v-model="activity_fisk"
+                    label="Jeg skal behandle og/eller tilberede fisk, fiskevarer og skalddyr."
+                  ></v-checkbox>
+                    
+                    <v-checkbox
+                    v-model="activity_koed"
+                    label="Jeg skal behandle og/eller tilberede kød, kødprodukter og kødpålæg"
+                  ></v-checkbox>
+                    
+                    <v-checkbox
+                    v-model="activity_madmeddetsamme"
+                    label="Jeg skal tilberede mad og/eller drikke som skal serveres med det samme."
+                  ></v-checkbox>
+                    
+                    <v-checkbox
+                    v-model="activity_opvarm_nedkol"
+                    label="Jeg skal opvarme, nedkøle eller varmholde fødevarer."
+                  ></v-checkbox>
+                   
+                    <v-checkbox
+                    v-model="activity_kolfrost"
+                    label="Jeg skal sælge varer der skal på køl eller frost som ex mælk og pålæg"
+                  ></v-checkbox>
+                    
+                    <v-checkbox
+                    v-model="activity_foodtruck"
+                    label="Jeg skal tilberede mad fra en mobil vogn. Fx. Foodtruck, pølsevogn og kaffevogn."
+                  ></v-checkbox>
+                    
+                    <v-checkbox
+                    v-model="activity_transport"
+                    label="Jeg skal transportere fødevarer."
+                  ></v-checkbox>
+                    
+                    <v-checkbox
+                    v-model="activity_import"
+                    label="Jeg skal importere fødevarer og/eller drikkevarer."
+                  ></v-checkbox>
+                    
+                    <v-checkbox
+                    v-model="activity_selvproducere"
+                    label="Jeg skal selv producere, pakke og/eller ompakke fødevarer."
+                  ></v-checkbox>
+                    
+                 </v-card-text>
+                   
+                 <v-card-actions>
+                   <v-btn
+                      color="primary"
+                      @click="e1 = 5"
+                    >
+                      Videre
+                    </v-btn>
+                 </v-card-actions>
+                  
+                </v-card>
+                
+
+                <v-btn text @click="e1 = 1">Forfra</v-btn>
+              </v-stepper-content>
+
+              <v-stepper-content step="5">
+                <v-card
+                 class="mb-12 pa-10"
+                 flat
+                 v-if="bagatel == 'true'"
+                >
+                 <v-card-title>
+                   Du skal ikke registrere din virksomhed, da dine aktiviteter ligger under det Fødevarestyrelsen kalder bagatelgrænsen.
+                 </v-card-title>
+                  <v-card-text>
+                    <p>Virksomheder under bagatelgrænsen skal stadig sikre, at maden ikke gør forbrugerne syge.</p>
+<p>
+  <strong>Fødevarevirksomheder under bagatelgrænsen skal derfor også overholde bl.a. disse krav:</strong></p>
+                    <ul>
+                      <li>En fødevare må ikke være farlig, dvs. sundhedsskadelig eller uegnet til menneskeføde, jf. artikel 14.</li>
+                      <li>Markedsføringen må ikke være vildledende, jf. artikel 16.</li>
+                      <li>Fødevarevirksomheden skal overholde fødevareforordningens artikel 17. Det betyder, at virksomheden skal efterleve de relevante krav i fødevarelovgivningen, herunder føre kontrol med, at den lever op til reglerne.</li>
+                      <li>Fødevarevirksomheden skal sikre sporbarhed og have dokumentation for, hvorfra den modtager råvarer, jf. artikel 18.</li>
+                      <li>Fødevarevirksomheden skal sørge for tilbagetrækning og tilbagekaldelse af fødevarer, der ikke lever op til fødevarelovgivningen, fx ved advarsel i pressen for markedsførte varer, jf. artikel 19</li>
+                    </ul>
+                    
+                  </v-card-text>
+                </v-card>
+                <v-card
+                 class="mb-12 pa-10"
+                 flat
+                 v-if="bagatel == 'false'"
+                >
+                 <v-card-title>
+                   Dit resultat
+                 </v-card-title>
+                  <v-card-text>
+                    <div v-if="client_b2c && !client_b2b">
+                      <p>
+                        Din virksomhed betegnes som en <strong>detailvirksomhed</strong> og skal derfor leve op til minimums krav for den type virksomhed.
+                      </p>
+                      <p><strong>Som registret fødevarevirksomhed skal du betale et gebyr hvert år.</strong></p>
+                      <p>Som detailvirksomhed betaler du et årligt gebyr på 549 kr.</p>
+                      
+                    </div>
+                  <div v-if="!client_b2c && client_b2b">
+                    <p>
+                      Din virksomhed betegnes som en <strong>engrovirksomhed</strong> og skal derfor leve op til minimums krav for den type virksomhed.
+                    <p/>
+                    <p><strong>Som registret fødevarevirksomhed skal du betale et gebyr hvert år.</strong></p>
+                      <p>Som engrosvirksomhed betaler du et årligt gebyr på 1.249 kr.</p>
+                  </div>
+                  <div v-if="client_b2c && client_b2b">
+                  <p>
+                    Din virksomhed betegnes som en både en <strong>detail- og engrosvirksomhed</strong> og skal derfor leve op til minimums krav for den type virksomhed.
+                  </p>
+                    <p><strong>Som registret fødevarevirksomhed skal du betale et gebyr hvert år.</strong></p>
+                    <p>Som både detail og engrosvirksomhed betaler du et årligt gebyr på 1.249 kr.</p>
+                  </div>
+                  </v-card-text>
+                  <hr>
+                  
+  
+                
+               </v-card>
+                <v-btn  text @click="e1 = 1">Forfra</v-btn>
+
+                
+              </v-stepper-content>
+            </v-stepper-items>
+          </v-stepper>
+          
+          <v-card
+                  class="mt-12"
+                  color="grey lighten-2"
+                  flat
+                  >
+            <v-card-text>
+              <p>client_b2c: {{ client_b2c }}</p>
+              <p>client_b2b: {{ client_b2b }}</p>
+              <p>bagatel: </p>
+            </v-card-text>
+          </v-card>
+
+        </v-row>
+      </v-container>
+   </v-app>
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      vuetify: new Vuetify(),
+      data () {
+        return {
+          bagatel: "false",
+          client_b2b: false,
+          client_b2c: false,
+          product_restaurant: false,
+          product_bagvaerk: false,
+          product_faerdigpakket: false,
+          product_buffet: false,
+          product_emballage: false,
+          product_egenavl: false,
+          product_nytprodukt: false,
+          product_stalddoer: false,
+          product_internet: false,
+          product_alkohol: false,
+          product_oekologi: false,
+          product_kosttilskud: false,
+          activity_fisk: false,
+          activity_koed: false,
+          activity_madmeddetsamme: false,
+          activity_opvarm_nedkol: false,
+          activity_kolfrost: false,
+          activity_foodtruck: false,
+          activity_transport: false,
+          activity_import: false,
+          activity_selvproducere: false,
+          e1: 1,
+        }
+      },
+    })
+  </script>
+</body>
+</html>
