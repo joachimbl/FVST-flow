@@ -92,6 +92,11 @@
     border-color: #00587A !important;
 }
 
+  .v-stepper__step {
+    padding-right: 20px;
+    padding-left: 0;
+  }
+
 
   </style>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
@@ -100,8 +105,16 @@
   <div id="app">
   <v-app id="inspire">
     <v-container>
-      <h1>Kom godt i gang med din fødevarevirksomhed</h1>
-      <h2>Følg guiden og få vejledning og materiale<br> der passer til din kommende fødevarevirksomhed.</h2>
+      <div v-if="e1 != 6">
+        <h1>Kom godt i gang med din fødevarevirksomhed</h1>
+        <h2>Følg guiden og få vejledning og materiale<br> der passer til din kommende fødevarevirksomhed.</h2>
+      </div>
+
+      <div v-if="e1 == 6">
+        <h1>Sådan!</h1>
+        <h2></h2>
+      </div>
+
 
       <v-row
         class="mb-6 flow"
@@ -111,25 +124,27 @@
         <v-col md="12"> 
           <v-stepper v-model="e1" flat>
             <v-stepper-header flat>
+              <v-btn  text @click="e1 = 1" v-if="e1 > 1" class="ma-4">Forfra</v-btn>
+              <v-spacer></v-spacer>
               <v-stepper-step :complete="e1 > 1" step="1"></v-stepper-step>
 
-              <v-divider></v-divider>
+              
 
               <v-stepper-step :complete="e1 > 2" step="2"></v-stepper-step>
 
-              <v-divider></v-divider>
+              
               
               <v-stepper-step :complete="e1 > 3" step="3"></v-stepper-step>
 
-              <v-divider></v-divider>
+              
               
               <v-stepper-step :complete="e1 > 4" step="4"></v-stepper-step>
 
-              <v-divider></v-divider>
+              
 
               <v-stepper-step :complete="e1 > 5" step="5"></v-stepper-step>
 
-              <v-divider></v-divider>
+              
 
               <v-stepper-step step="6"></v-stepper-step>
             </v-stepper-header>
@@ -141,7 +156,7 @@
                   flat
                 >
                   <v-card-title class="font-weight-bold">
-                    Kan du se en eller flere af følgende udsagn, der passer på din virksomhed?
+                    Kan du se en eller flere af følgende udsagn,<br> der passer på din virksomhed?
                   </v-card-title>
                   <v-card-subtitle>
                    
@@ -287,8 +302,6 @@
                   
                 </v-card>
                 
-
-                <v-btn text @click="e1 = 1">Forfra</v-btn>
               </v-stepper-content>
               
               <v-stepper-content step="3">
@@ -356,8 +369,6 @@
                   
                 </v-card>
                 
-
-                <v-btn text @click="e1 = 1">Forfra</v-btn>
               </v-stepper-content>
               
               <v-stepper-content step="4">
@@ -421,8 +432,6 @@
                   
                 </v-card>
                 
-
-                <v-btn text @click="e1 = 1">Forfra</v-btn>
               </v-stepper-content>
 
               <v-stepper-content step="5">
@@ -486,8 +495,6 @@
                   
                 </v-card>
                 
-
-                <v-btn text @click="e1 = 1">Forfra</v-btn>
               </v-stepper-content>
 
               <v-stepper-content step="6">
@@ -661,8 +668,8 @@ under et kontrolbesøg.
                       <v-col cols="6">
                         <p>Som udgangspunkt må du gå i gang med det samme når du har lavet din risikoanalyse, har taget stilling til
                         din egenkontrol og har registreret din virksomhed.</p>
-                        <p>Når du har udfyldt registreringsblanketten får du en <strong>kvittering på mail</strong> vedrørende registrering af
-virksomheden. <strong>I kvitteringen står der hvorvidt du må starte din virksomhed til den selvangivne startdato</strong>. I
+                        <p>Når du har udfyldt registreringsblanketten får du en kvittering på mail vedrørende registrering af
+virksomheden.</p><p> <strong>I kvitteringen står der hvorvidt du må starte din virksomhed til den selvangivne startdato</strong>. I
 mailen er der også en kontrolinformationsblanket som skal hænge synligt inden Fødevarestyrelsen har
 været på besøg først gang.</p>
                       
@@ -734,47 +741,49 @@ bakterier og virus kan blive overført mellem fødevarer eller fra personer til 
             </v-stepper-items>
           </v-stepper>
           
-          <v-card
-                  class="mt-12"
-                  color="grey lighten-2"
-                  flat
-                  >
-            <v-card-text>
-              <v-row>
-                <v-col cols="6">
-                  <p>bagatel: {{ bagatel }}</p>
-                  <p>client_b2c: {{ client_b2c }}</p>
-                  <p>client_b2b: {{ client_b2b }}</p> 
-                </v-col>
-                <v-col cols="6">
-                  <p>activity_restaurant : {{ activity_restaurant }}</p>
-                  <p>activity_bagvaerk : {{ activity_bagvaerk }}</p>
-                  <p>activity_faerdigpakket : {{ activity_faerdigpakket }}</p>
-                  <p>activity_emballage : {{ activity_emballage }}</p>
-                  <p>activity_egenavl : {{ activity_egenavl }}</p>
-                  <p>activity_nytprodukt : {{ activity_nytprodukt }}</p>
-                  <p>activity_stalddoer : {{ activity_stalddoer }}</p>
-                  <p>activity_internet : {{ activity_internet }}</p>
-                  <p>activity_alkohol : {{ activity_alkohol }}</p>
-                  <p>activity_oekologi : {{ activity_oekologi }}</p>
-                  <p>activity_kosttilskud : {{ activity_kosttilskud }}</p>
-                  <p>activity_fisk : {{ activity_fisk }}</p>
-                  <p>activity_koed : {{ activity_koed }}</p>
-                  <p>activity_opvarm_nedkol : {{ activity_opvarm_nedkol }}</p>
-                  <p>activity_kolfrost : {{ activity_kolfrost }}</p>
-                  <p>activity_foodtruck : {{ activity_foodtruck }}</p>
-                  <p>activity_transport : {{ activity_transport }}</p>
-                  <p>activity_import : {{ activity_import }}</p>
-                  <p>activity_selvproducere : {{ activity_selvproducere }}</p>
-                </v-col>
-              </v-row>
-              
-              
-            </v-card-text>
-          </v-card>
+          
 
         </v-row>
+
       </v-container>
+      <v-card
+          class="mt-12"
+          color="grey lighten-2"
+          flat
+          >
+    <v-card-text>
+      <v-row>
+        <v-col cols="6">
+          <p>bagatel: {{ bagatel }}</p>
+          <p>client_b2c: {{ client_b2c }}</p>
+          <p>client_b2b: {{ client_b2b }}</p> 
+        </v-col>
+        <v-col cols="6">
+          <p>activity_restaurant : {{ activity_restaurant }}</p>
+          <p>activity_bagvaerk : {{ activity_bagvaerk }}</p>
+          <p>activity_faerdigpakket : {{ activity_faerdigpakket }}</p>
+          <p>activity_emballage : {{ activity_emballage }}</p>
+          <p>activity_egenavl : {{ activity_egenavl }}</p>
+          <p>activity_nytprodukt : {{ activity_nytprodukt }}</p>
+          <p>activity_stalddoer : {{ activity_stalddoer }}</p>
+          <p>activity_internet : {{ activity_internet }}</p>
+          <p>activity_alkohol : {{ activity_alkohol }}</p>
+          <p>activity_oekologi : {{ activity_oekologi }}</p>
+          <p>activity_kosttilskud : {{ activity_kosttilskud }}</p>
+          <p>activity_fisk : {{ activity_fisk }}</p>
+          <p>activity_koed : {{ activity_koed }}</p>
+          <p>activity_opvarm_nedkol : {{ activity_opvarm_nedkol }}</p>
+          <p>activity_kolfrost : {{ activity_kolfrost }}</p>
+          <p>activity_foodtruck : {{ activity_foodtruck }}</p>
+          <p>activity_transport : {{ activity_transport }}</p>
+          <p>activity_import : {{ activity_import }}</p>
+          <p>activity_selvproducere : {{ activity_selvproducere }}</p>
+        </v-col>
+      </v-row>
+      
+      
+    </v-card-text>
+  </v-card>
    </v-app>
 </div>
 
