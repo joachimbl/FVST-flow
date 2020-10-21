@@ -118,6 +118,7 @@
         justify="center"
         no-gutters
       >
+
         <v-col md="12"> 
           <v-stepper v-model="e1" flat>
             <v-stepper-header flat>
@@ -617,8 +618,9 @@
                  v-if="bagatel == 0"
                 >
                  <v-card-title class="font-weight-bold justify-center">
-                   Dit resultat
+                   Her er resultatet til din virksomhed
                  </v-card-title>
+         
                  <v-spacer></v-spacer>
 
                   <v-card-text>
@@ -713,6 +715,11 @@
                           Derudover skal du lave et skriftligt egenkontrolprogram. Her skal du beskrive, hvordan du vil føre kontrol
                           med de aktiviteter i din virksomhed, der har stor betydning for fødevaresikkerheden. Din risikoanalyse giver
                           dig overblikket over de kritiske kontrolpunkter, som kræver skriftlig egenkontrolprogram.</p>
+
+                          <v-btn v-if="activity_opvarm_nedkol" href="https://www.foedevarestyrelsen.dk/SiteCollectionDocuments/Kontrolstyring/Egenkontrol/Egenkontrol_eksempel.pdf" depressed target="_blank" class="mb-1 d-flex">
+                            Skema til skriftlig egenkontrol
+                        </v-btn>
+                      
                         
                       </v-col>
                     </v-row>
@@ -724,13 +731,23 @@
                         </v-card-subtitle>
                       </v-col>
                       <v-col cols="6">
-                        <p>Fødevarestyrelsen kategoriserer din virksomhed som af lav risiko for fødevaresikkerheden. Det betyder at
-du ikke skal lave et skriftligt egenkontrol program, men når Fødevarestyrelsen kommer på kontrol skal du
-kunne fortælle om hvilke aktiviteter der kan gøre folk syge og hvorfor de er vigtige for
-fødevaresikkerheden. </p>
-                      <p>Du skal af samme grund lave en skriftlig risikoanalyse. Begge dele bliver kontrolleret
-under et kontrolbesøg.
+
+                        <p>Du skal at sikre, at dine fødevarer er i orden, så folk ikke bliver syge. Du skal derfor lave en skriftlig
+                        risikoanalyse inden du starter din fødevarevirksomhed.</p><p> Risikoanalysen giver dig et overblik over hvilke
+                        aktiviteter i din virksomhed, der kan gøre folk syge og også hvad du skal gøre for at forebygge at det ikke
+                        sker. </p>
+                        <p><strong>En risikoanalyse er en gennemgang af sammenhængen mellem:</strong>
+                          <ul>
+                            <li>Virksomhedens fødevareaktiviteter</li>
+                            <li>Risici forbundet med aktiviteterne – dvs. hvor det kan gå galt, så fødevarerne kan blive farlige</li>
+                            <li>Styringsmuligheder – dvs. en beskrivelse af, hvad din virksomhed kan gøre for at forebygge at noget går galt, så fødevarerne bliver farlige.</li>
+                          </ul>
                         </p>
+
+                        <p>Du behøver dig ikke at lave et skriftligt egenkontrolprogram, men når Fødevarestyrelsen kommer på
+                        kontrol skal du have styr på hvilke aktiviteter i din virksomhed der kan have betydning for
+                        fødevaresikkerheden, og kunne forklare hvad du gør for at undgå at det sker.</p>
+
                         
                       </v-col>
                     </v-row>
@@ -810,43 +827,43 @@ under et kontrolbesøg.
                         <p>Vi har samlet de dele fra hygiejnevejledningen der kan hjælpe dig til at leve op til kravene. 
                         </p>
 
-                        <v-btn v-if="activity_restaurant" href="https://www.foedevarestyrelsen.dk/Selvbetjening/Vejledninger/Hygiejnevejledning/Sider/result.aspx?key=74774d1a-c0a2-4ead-a7e0-d5590b5aa721" depressed target="_blank" class="mb-1">
+                        <v-btn v-if="activity_restaurant" href="https://www.foedevarestyrelsen.dk/Selvbetjening/Vejledninger/Hygiejnevejledning/Sider/result.aspx?key=74774d1a-c0a2-4ead-a7e0-d5590b5aa721" depressed target="_blank" class="mb-1 d-flex">
                           Hygiejneregler for restaurant, take- away mm.
                         </v-btn>
 
-                        <v-btn v-if="activity_transport" href="https://www.foedevarestyrelsen.dk/Selvbetjening/Vejledninger/Hygiejnevejledning/Sider/30--Transport-af-foedevarer.aspx?key=7f07f281-dc9a-4664-be7f-11baa61b6fd4" depressed target="_blank" class="mb-1">
+                        <v-btn v-if="activity_transport" href="https://www.foedevarestyrelsen.dk/Selvbetjening/Vejledninger/Hygiejnevejledning/Sider/30--Transport-af-foedevarer.aspx?key=7f07f281-dc9a-4664-be7f-11baa61b6fd4" depressed target="_blank" class="mb-1 d-flex">
                             Transport af fødevarer
                         </v-btn>
 
-                        <v-btn v-if="activity_internet" href="https://www.foedevarestyrelsen.dk/Foedevarer/E-handel/Sider/E-handel.aspx" depressed target="_blank" class="mb-1">
+                        <v-btn v-if="activity_internet" href="https://www.foedevarestyrelsen.dk/Foedevarer/E-handel/Sider/E-handel.aspx" depressed target="_blank" class="mb-1 d-flex">
                             E-handel med fødevarer
                         </v-btn>
 
-                        <v-btn v-if="activity_foodtruck" href="https://www.foedevarestyrelsen.dk/Selvbetjening/Vejledninger/Hygiejnevejledning/Sider/15--Mobile-foedevarevirksomheder-og-midlertidige-lokaler.aspx?key=9e785a3c-d20a-447c-852a-053926724540" depressed target="_blank" class="mb-1">
+                        <v-btn v-if="activity_foodtruck" href="https://www.foedevarestyrelsen.dk/Selvbetjening/Vejledninger/Hygiejnevejledning/Sider/15--Mobile-foedevarevirksomheder-og-midlertidige-lokaler.aspx?key=9e785a3c-d20a-447c-852a-053926724540" depressed target="_blank" class="mb-1 d-flex">
                             Regler for mobile fødevarevirksomheder
                         </v-btn>
 
-                        <v-btn v-if="activity_gaardbutik" href="https://www.foedevarestyrelsen.dk/Selvbetjening/Vejledninger/Hygiejnevejledning/Sider/result.aspx?key=d42089f2-f6d5-4aa7-acea-73b72e4f9ce3" depressed target="_blank" class="mb-1">
+                        <v-btn v-if="activity_gaardbutik" href="https://www.foedevarestyrelsen.dk/Selvbetjening/Vejledninger/Hygiejnevejledning/Sider/result.aspx?key=d42089f2-f6d5-4aa7-acea-73b72e4f9ce3" depressed target="_blank" class="mb-1 d-flex">
                             Regler for gårdbutik
                         </v-btn>
 
-                        <v-btn v-if="activity_egenavl" href="https://www.foedevarestyrelsen.dk/Selvbetjening/Vejledninger/Hygiejnevejledning/Sider/result.aspx?key=8b360723-b792-4ffb-8585-0612c1884b9c" depressed target="_blank" class="mb-1">
+                        <v-btn v-if="activity_egenavl" href="https://www.foedevarestyrelsen.dk/Selvbetjening/Vejledninger/Hygiejnevejledning/Sider/result.aspx?key=8b360723-b792-4ffb-8585-0612c1884b9c" depressed target="_blank" class="mb-1 d-flex">
                             Regler for stalddørssalg og egen produktion
                         </v-btn>
 
-                        <v-btn v-if="activity_faerdigpakket" href="https://www.foedevarestyrelsen.dk/Selvbetjening/Vejledninger/Hygiejnevejledning/Sider/4-3-Opbevaring-af-f%C3%B8devarer.aspx" depressed target="_blank" class="mb-1">
+                        <v-btn v-if="activity_faerdigpakket" href="https://www.foedevarestyrelsen.dk/Selvbetjening/Vejledninger/Hygiejnevejledning/Sider/4-3-Opbevaring-af-f%C3%B8devarer.aspx" depressed target="_blank" class="mb-1 d-flex">
                             Opbevaring af færdigpakkede fødevarer
                         </v-btn>
 
-                        <v-btn v-if="activity_kolfrost" href="https://www.foedevarestyrelsen.dk/Selvbetjening/Vejledninger/Hygiejnevejledning/Sider/26--Koelekrav-for-foedevarer.aspx?key=aae4494d-aeca-4f95-a4be-a10169a5ea11" depressed target="_blank" class="mb-1">
+                        <v-btn v-if="activity_kolfrost" href="https://www.foedevarestyrelsen.dk/Selvbetjening/Vejledninger/Hygiejnevejledning/Sider/26--Koelekrav-for-foedevarer.aspx?key=aae4494d-aeca-4f95-a4be-a10169a5ea11" depressed target="_blank" class="mb-1 d-flex">
                             Kølekrav for fødevarer
                         </v-btn>
 
-                        <v-btn v-if="activity_emballage" href="https://www.foedevarestyrelsen.dk/Selvbetjening/Vejledninger/Hygiejnevejledning/Sider/29--Indpakning-og-emballering-af-foedevarer.aspx?key=4d56bc6f-86bd-4c7d-8fb5-b549158e2e14" depressed target="_blank" class="mb-1">
+                        <v-btn v-if="activity_emballage" href="https://www.foedevarestyrelsen.dk/Selvbetjening/Vejledninger/Hygiejnevejledning/Sider/29--Indpakning-og-emballering-af-foedevarer.aspx?key=4d56bc6f-86bd-4c7d-8fb5-b549158e2e14" depressed target="_blank" class="mb-1 d-flex">
                             Indpakning og emballering af fødevarer
                         </v-btn>
 
-                        <v-btn v-if="activity_opvarm_nedkol" href="https://www.foedevarestyrelsen.dk/Selvbetjening/Vejledninger/Hygiejnevejledning/Sider/27--Varmebehandling-og-varmholdelse-af-foedevarer.aspx" depressed target="_blank" class="mb-1">
+                        <v-btn v-if="activity_opvarm_nedkol" href="https://www.foedevarestyrelsen.dk/Selvbetjening/Vejledninger/Hygiejnevejledning/Sider/27--Varmebehandling-og-varmholdelse-af-foedevarer.aspx" depressed target="_blank" class="mb-1 d-flex">
                             Varmebehandling og varmholdelse af fødevarer
                         </v-btn>
                       
@@ -861,7 +878,7 @@ under et kontrolbesøg.
                     <v-row v-if="activity_oekologi">
                       <v-col cols="6">
                         <v-card-subtitle class="pa-0">
-                          Særregler om Økologi
+                          Særregler om økologi
                         </v-card-subtitle>
                       </v-col>
                       <v-col cols="6">
@@ -912,13 +929,13 @@ under et kontrolbesøg.
                     >
                       Register din fødevarevirksomhed med NemID
                     </v-btn>
-                    <p>Husk også at registrere din vikrsomhed på Virk.dk.</p>
+                    <p class="mt-2">Husk også at registrere din virksomhed på Virk.dk.</p>
                     <v-row clas="mt-10">
                       <v-btn
                         color="white"
                         href="https://saas.resultmaker.com/virkfrontend/fvst.aspx?id=autorisation_registrering_foedevarevirksomhed"
                         elevation="2"
-                        class="col-xs-12 col-md-6"
+                        class="col-xs-12 mt-4 col-md-6"
                         tile
                         block
                         large
