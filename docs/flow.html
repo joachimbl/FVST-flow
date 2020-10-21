@@ -245,7 +245,6 @@
                     <v-row>
                       <v-col
                         cols="12"
-                        md="6"
                       >
                         <v-list-item>
                           <template v-slot:default="{ active }">
@@ -258,11 +257,7 @@
                           </v-list-item-content>
                           </template>
                         </v-list-item>
-                        </v-col>
-                      <v-col
-                        cols="12"
-                        md="6"
-                      >
+    
                         <v-list-item>
                           <template v-slot:default="{ active }">
                           <v-list-item-action>
@@ -590,29 +585,9 @@
 
                     <v-divider class="pb-4"></v-divider>
 
-                    <div class="overline">
-                      Registrering
-                    </div>
-
-                    <v-row>
-                      <v-col cols="6">
-                        <v-card-subtitle class="pa-0">
-                        Du skal <strong>registrere</strong> din virksomhed
-                        </v-card-subtitle>
-                      </v-col>
-                      <v-col cols="6">
-                        <p>Når du har registreret din fødevarevirksomhed, bliver du kontaktet af Fødevarestyrelsen.</p>
-                        <p> I første omgang modtager du et brev med de ting du skal være opmærksom inden du starter din virksomhed. Derefter ringer vi til dig for at aftale nærmere omkring første kontrolbesøg.</p><p> Vi kommer på første kontrolbesøg inden for 2 måneder.</p>
-                        <p><strong>På det første kontrolbesøg skal du som minimum kunne fremvise din risikoanalyse og egenkontrol.</strong><br>På besøget har den tilsynsførende god tid til at vejlede om reglerne på fødevareområdet og til at fortælle, hvad du som virksomhed kan forvente af dit samarbejde med Fødevarestyrelsen.
-                        </p>
-                        
-                      </v-col>
-                    </v-row>
-
-                    <v-divider class="pb-4"></v-divider>
 
                     <div class="overline">
-                      Egenkontrol & risikoanalyse (mangler regel)
+                      Egenkontrol & risikoanalyse
                     </div>
 
                     
@@ -679,6 +654,28 @@ under et kontrolbesøg.
                   </div>
 
                     <v-divider class="pb-4"></v-divider>
+
+                    <div class="overline">
+                      Registrering
+                    </div>
+
+                    <v-row>
+                      <v-col cols="6">
+                        <v-card-subtitle class="pa-0">
+                        Du skal <strong>registrere</strong> din virksomhed
+                        </v-card-subtitle>
+                      </v-col>
+                      <v-col cols="6">
+                        <p>Når du har registreret din fødevarevirksomhed, bliver du kontaktet af Fødevarestyrelsen.</p>
+                        <p> I første omgang modtager du et brev med de ting du skal være opmærksom inden du starter din virksomhed. Derefter ringer vi til dig for at aftale nærmere omkring første kontrolbesøg.</p><p> Vi kommer på første kontrolbesøg inden for 2 måneder.</p>
+                        <p><strong>På det første kontrolbesøg skal du som minimum kunne fremvise din risikoanalyse og egenkontrol.</strong><br>På besøget har den tilsynsførende god tid til at vejlede om reglerne på fødevareområdet og til at fortælle, hvad du som virksomhed kan forvente af dit samarbejde med Fødevarestyrelsen.
+                        </p>
+                        
+                      </v-col>
+                    </v-row>
+
+                    <v-divider class="pb-4"></v-divider>
+
                     <div class="overline">
                       Autorisation og første salg
                     </div>
@@ -690,19 +687,31 @@ under et kontrolbesøg.
                         </v-card-subtitle>
                       </v-col>
                       <v-col cols="6">
-                        <p>Som udgangspunkt må du gå i gang med det samme når du har lavet din risikoanalyse, har taget stilling til
-                        din egenkontrol og har registreret din virksomhed.</p>
-                        <p>Når du har udfyldt registreringsblanketten får du en kvittering på mail vedrørende registrering af
-virksomheden.</p><p> <strong>I kvitteringen står der hvorvidt du må starte din virksomhed til den selvangivne startdato</strong>. I
-mailen er der også en kontrolinformationsblanket som skal hænge synligt inden Fødevarestyrelsen har
-været på besøg først gang.</p>
-                      
+
+                        <div>
+                          <p v-if="activity_oekologi || client_b2b || activity_alkohol">Du må ikke starte din virksomhed op uden at have modtaget en autorisation fra Fødevarestyrelsen.</p>
+
+                          <p v-else>
+                            Du må gå i gang med fra den dag du har registreret din virksomhed fra.
+                          </p>
+
+                        </div>
+
+                        <p v-if="activity_alkohol">Da du skal sælge alkohol, skal du huske at have en alkoholbevilling inden du må sælge alkohol. Du kan søge om en alkoholbækbevilling og tilladelse på politiets hjemmeside.</p>
+    
+
+                        <p v-if="activity_oekologi"><strong>Når du arbejder med økologi må du ikke starte din virksomhed op uden at modtaget en økologirapport fra Fødevarestyrelsen.</strong> Rapporten bliver først lavet, når Fødevarestyrelsen har fået dit egenkontrolprogram for de økologiske aktiviteter. 
+                        Den får du tilsendt med din kvittering på registering. Du skal sende dit egenkontrolprogram sammen med formularen for XX. Hent formular?!
+                        </p>
+
+                        <p>Når du har udfyldt registreringsblanketten får du en kvittering på mail, og i mailen finder du fødevarereglerne som du også skal have styr på inden opstart.</p> 
+
                       </v-col>
                     </v-row>
 
                     <v-divider class="pb-4"></v-divider>
                     <div class="overline">
-                      Hygiejneregler (mangler regler)
+                      Hygiejneregler
                     </div>
 
                     <v-row>
@@ -712,18 +721,22 @@ været på besøg først gang.</p>
                         </v-card-subtitle>
                       </v-col>
                       <v-col cols="6">
-                        <p>Det er et krav at du har lokaler i en passende størrelse, og at de er indrettet, så de passer til aktiviteterne i din
-virksomhed. Det gælder også, hvis du driver virksomhed fra en privat bolig.</p>
-                        <p>Derudover skal virksomheden være nem at holde ren, og du skal indrette produktionen, så du undgår, at
-bakterier og virus kan blive overført mellem fødevarer eller fra personer til fødevarer.</p>
-                        <p>Vi har samlet de dele fra hygiejnevejledningen der kan hjælpe dig til at leve op til kravene.</p>
+                        <p>Det er et krav at du har lokaler i en passende størrelse, og at de er indrettet, så de passer til aktiviteterne i din virksomhed. </p>
+                        <p>Det gælder også, hvis du driver virksomhed fra en privat bolig.</p>
+                        <p>Derudover skal virksomheden være nem at holde ren, og du skal indrette produktionen, så du undgår, at bakterier og virus kan blive overført mellem fødevarer eller fra personer til fødevarer.</p>
+                        <p>Vi har samlet de dele fra hygiejnevejledningen der kan hjælpe dig til at leve op til kravene. 
+                        </p>
+
+                        <v-btn href="http://fvst.dk" color="white" depressed>
+                          her er et link
+                        </v-btn>
                       
                       </v-col>
                     </v-row>
 
                     <v-divider class="pb-4"></v-divider>
-                    <div class="overline">
-                      Særregler for dig (mangler regler)
+                    <div class="overline" v-if="activity_oekologi || activity_alkohol || activity_kosttilskud">
+                      Særregler for dig
                     </div>
 
                     <v-row v-if="activity_oekologi">
@@ -751,11 +764,38 @@ bakterier og virus kan blive overført mellem fødevarer eller fra personer til 
                         </v-card-subtitle>
                       </v-col>
                       <v-col cols="6">
-                        <p>Hvis du skal sælge alkohol på en restauration mm skal du søge om alkoholbevilling (hos hvem) inden du starter din virksomhed.</p>
+                        <p>Nå du skal sælge alkohol skal du søge om alkoholbevilling i din kommune inden du starter din virksomhed. Det kan forsinke åbningen hvis du ikke har styr på det inden opstart.</p>
+                      </v-col>
+                    </v-row>
+                    <v-row v-if="activity_kosttilskud">
+                      <v-col cols="6">
+                        <v-card-subtitle class="pa-0">
+                          Særregler om kosttilskud
+                        </v-card-subtitle>
+                      </v-col>
+                      <v-col cols="6">
+                        <p>De kosttilskud, som du ønsker at sælge, skal registreres senest samme dag som første salg.</p>
+
+                          <p>Hvis du har anmeldt et eller flere kosttilskud til markedsføring i Danmark, og har en årlig omsætning på over 50.000 kr., skal du betale et årligt beløb til finansiering af en styrket kontrol med kosttilskud.</p>
+
+                          <p><strong>Der opkræves gebyr på 766 kr. pr. registreret kosttilskud og 9.573 kr. pr. virksomhed for virksomheder, der har anmeldte kosttilskud registret pr. 1. februar indeværende år.</strong></p>
                       </v-col>
                     </v-row>
     
                   </v-card-text>
+
+            
+                   <v-btn
+                      color="primary"
+                      href="https://saas.resultmaker.com/virkfrontend/fvst.aspx?id=autorisation_registrering_foedevarevirksomhed"
+                      elevation="2"
+                      tile
+                      x-large
+                    >
+                      Register din fødevarevirksomhed med NemID
+                    </v-btn>
+                    <p>Husk også at registrere din vikrsomhed på <v-btn text href="virk.dk">virk.dk</v-btn></p>
+             
                   
                </v-card>
               
