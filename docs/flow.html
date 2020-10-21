@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <style>
+
+    * { font-family: "Oxygen" }
+
+    p, li {font-size: 16px; margin-bottom: 10px;}
+
+    .v-list-item__subtitle, .v-list-item__title {
+        overflow: visible; 
+         text-overflow: none;
+        white-space: wrap;
+    }
+
+    .v-list-item {
+      background: #fff;
+      border-bottom: 1px solid #EBF2F4;
+    }
+
+    .bg-transparent {
+      background: transparent !important;
+    }
+
+    .flow, .v-stepper {
+      background: #EBF2F4 !important;
+      color: #fff !important;
+    }
+
+    .v-stepper, .v-stepper__header {
+      box-shadow: none;
+    }
+
+    .theme--light.v-application {
+      background: #fff;
+    }
+
+    h1 {
+      color: #fff;
+      text-align: center;
+      font-weight: 700;
+      font-size: 2.3rem;
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      color: #fff;
+      text-align: center;
+      font-weight: 300;
+      font-size: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .v-card__text {
+      font-size: 1rem;
+    }
+
+    .v-card__subtitle {
+      font-size: 1.3rem;
+      line-height: 1.8rem;
+    }
+
+    .v-card__text .v-card__subtitle {
+      font-size: 1.125rem;
+      text-align: right;
+      line-height: 1.8rem;
+    }
+
+    .v-sheet.v-card {
+      border-radius: 0;
+      background: #EBF2F4;
+    }
+
+    .theme--light.v-label, .theme--light.v-card .v-card__subtitle, .theme--light.v-card>.v-card__text {
+      color: rgba(0,0,0,.9);
+    }
+
+    .v-card__title {
+      font-size: 1.7rem;
+      margin-bottom: 1rem;
+      word-break: break-word;
+    }
+
+    .v-application .primary {
+    background-color: #00587A !important;
+    border-color: #00587A !important;
+}
+
+  .v-stepper__step {
+    padding-right: 20px;
+    padding-left: 0;
+  }
+
+
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+<body>
+  <div id="app">
+  <v-app id="inspire">
+    <v-container>
+      <div v-if="e1 != 6" class="pt-12 pb-8 primary">
+        <h1>Kom godt i gang med din fødevarevirksomhed</h1>
+        <h2>Følg guiden og få vejledning og materiale<br> der passer til din kommende fødevarevirksomhed.</h2>
+      </div>
+
+      <div v-if="e1 == 6" class="pt-12 pb-8 primary">
+        <h1>Sådan!</h1>
+        <h2></h2>
+      </div>
+
+
+      <v-row
+        class="mb-6 flow px-5"
+        justify="center"
+        no-gutters
+      >
+        <v-col md="12"> 
+          <v-stepper v-model="e1" flat>
+            <v-stepper-header flat>
+              <v-btn  text @click="e1 = 1" v-if="e1 > 1" class="ma-4">Forfra</v-btn>
+              <v-spacer></v-spacer>
+              <v-stepper-step :complete="e1 > 1" step="1"></v-stepper-step>
+
+              
+
+              <v-stepper-step :complete="e1 > 2" step="2"></v-stepper-step>
+
+              
+              
+              <v-stepper-step :complete="e1 > 3" step="3"></v-stepper-step>
+
+              
+              
+              <v-stepper-step :complete="e1 > 4" step="4"></v-stepper-step>
+
+              
+
+              <v-stepper-step :complete="e1 > 5" step="5"></v-stepper-step>
+
+              
+
+              <v-stepper-step step="6"></v-stepper-step>
+            </v-stepper-header>
+
+            <v-stepper-items>
+              <v-stepper-content step="1">
+
+                <v-card
+                  class="mb-12 pa-10"
+                  flat
+                >
+                  <v-card-title class="font-weight-bold">
+                    Hvem sælger du til?
+                  </v-card-title>
+                  <v-card-subtitle>
+                    Vælg gerne flere
+                  </v-card-subtitle>
+                  <v-card-text>
+        
+                  <v-list-item >
+                    <v-list-item-action>
+                      <v-checkbox v-model="client_b2c"></v-checkbox>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                      <v-list-item-title class="text-wrap font-weight-bold">Den almindelige forbruger</v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
+
+                  <v-list-item >
+                    <v-list-item-action>
+                      <v-checkbox v-model="client_b2b"></v-checkbox>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                      <v-list-item-title class="text-wrap font-weight-bold">Virksomheder</v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
+
+                 </v-card-text>
+                   
+                 <v-card-actions>
+                   <v-btn
+                      color="primary"
+                      @click="e1 = 2"
+                      elevation="2"
+                      tile
+                      x-large
+                      :disabled="!client_b2b && !client_b2c"
+                    >
+                      Næste
+                    </v-btn>
+                 </v-card-actions>
+                  
+                </v-card>
+                
+              </v-stepper-content>
+
+              <v-stepper-content step="2">
+                <v-card
+                  class="mb-12 px-10"
+                  flat
+                >
+                  <v-card-title class="font-weight-bold">
+                    Kan du se en eller flere af følgende udsagn,<br> der passer på din virksomhed?
+                  </v-card-title>
+                  <v-card-subtitle>
+                   
+                  </v-card-subtitle>
+                  <v-card-text>
+    
+                    <v-list-item two-line class="bg-transparent">
+                      <v-list-item-content>
+                        <v-list-item-title class="text-wrap font-weight-bold">Jeg sælger mad og drikke max 10 gange på et år.</v-list-item-title>
+                        <v-list-item-subtitle class="text-wrap"> F.eks via bod eller foodtruck til festivaller eller mindre events få dage ad gangen.</v-list-item-subtitle>
+                      </v-list-item-content>
+                    </v-list-item>
+                    
+                    <v-list-item two-line class="bg-transparent">
+                      <v-list-item-content>
+                        <v-list-item-title class="text-wrap font-weight-bold">Jeg har en virksomhed hvor fødevarer udgør max 50% af omsætningen og højest 50.000 kr. om året.</v-list-item-title>
+                        <v-list-item-subtitle class="text-wrap"> F.eks chokolade eller vin til værtsgaver, eller kaffe i en tøjbutik.</v-list-item-subtitle>
+                      </v-list-item-content>
+                    </v-list-item>
+                    
+                    <v-list-item two-line class="bg-transparent">
+                      <v-list-item-content>
+                        <v-list-item-title class="text-wrap font-weight-bold">Jeg serverer <strong>mindre måltider</strong> i en børneinstitution eller dagpleje.</v-list-item-title>
+                        <v-list-item-subtitle class="text-wrap"> F.eks som morgenmad, frisk frugt og drikkevarer. Gælder ikke fast frokostordning.</v-list-item-subtitle>
+                      </v-list-item-content>
+                    </v-list-item>
+                    
+                    <v-list-item two-line class="bg-transparent">
+                      <v-list-item-content>
+                        <v-list-item-title class="text-wrap font-weight-bold">Jeg sælger, leverer eller donerer mad fra mit private hjem til selskaber af 4-5 portioner om ugen.</v-list-item-title>
+                        <v-list-item-subtitle class="text-wrap"> F.eks. overskydende mad til naboen eller brød til arrangementer. </v-list-item-subtitle>
+                      </v-list-item-content>
+                    </v-list-item>
+                  
+                    <v-list-item-group
+                      v-model="bagatel"
+                    >
+                    <v-row>
+                      <v-col
+                        cols="12"
+                        md="6"
+                      >
+                        <v-list-item>
+                          <template v-slot:default="{ active }">
+                          <v-list-item-action>
+                            <v-checkbox :input-value="active"></v-checkbox>
+                          </v-list-item-action>
+                          <v-list-item-content>
+                            <v-list-item-title class="text-wrap font-weight-bold">Nej</v-list-item-title>
+                            <v-list-item-subtitle class="text-wrap">Ingen udsagn passer til den virksomhed jeg vil opstarte</v-list-item-subtitle>
+                          </v-list-item-content>
+                          </template>
+                        </v-list-item>
+                        </v-col>
+                      <v-col
+                        cols="12"
+                        md="6"
+                      >
+                        <v-list-item>
+                          <template v-slot:default="{ active }">
+                          <v-list-item-action>
+                            <v-checkbox :input-value="active"></v-checkbox>
+                          </v-list-item-action>
+                          <v-list-item-content>
+                            <v-list-item-title class="text-wrap font-weight-bold">Ja</v-list-item-title>
+                            <v-list-item-subtitle class="text-wrap">En eller flere udsagn passer til den virksomhed jeg vil opstarte</v-list-item-subtitle>
+                          </v-list-item-content>
+                        </template>
+                        </v-list-item>
+                      </v-col>
+                      </v-row>
+                      
+                    </v-list-item-group>
+
+
+                    
+                 </v-card-text>
+                   
+                 <v-card-actions>
+           
+                   <v-btn
+                      v-if="bagatel == 0"
+                      @click="e1 = 3"
+                      color="primary"
+                      elevation="2"
+                      tile
+                      x-large
+                    >
+                      Næste
+                    </v-btn>
+                    <v-btn
+                      v-if="bagatel == 1"
+                      @click="e1 = 6"
+                      color="primary"
+                      elevation="2"
+                      tile
+                      x-large
+                    >
+                      Næste
+                    </v-btn>
+                 </v-card-actions>
+                  
+                </v-card>
+                
+              </v-stepper-content>
+              
+              <v-stepper-content step="3">
+             
+                <v-card
+                  class="mb-12 pa-10"
+                  flat
+                >
+                  <v-card-title class="font-weight-bold">
+                    Hvilke aktiviteter passer på dine virksomhed
+                  </v-card-title>
+                  <v-card-subtitle>
+                    Vælg gerne flere
+                  </v-card-subtitle>
+                  <v-card-text>
+
+                    <v-checkbox
+                    v-model="activity_restaurant"
+                    label="Jeg skal sælge mad og drikke på restaurant, kantine, i café eller take-away."
+                  ></v-checkbox>
+
+                   <v-checkbox
+                    v-model="activity_stalddoer"
+                    label="Jeg skal sælge produkter i egen gårdbutik."
+                  ></v-checkbox>
+
+                   <v-checkbox
+                    v-model="activity_egenavl"
+                    label="Jeg skal sælge fødevarer jeg selv har avlet, sanket eller fisket. Fx bær, svampe, honning, fisk eller æg."
+                  ></v-checkbox>
+
+                    <v-checkbox
+                    v-model="activity_internet"
+                    label="Jeg skal sælge fødevarer via internettet."
+                  ></v-checkbox>
+
+                   <v-checkbox
+                    v-model="activity_faerdigpakket"
+                    label="Jeg skal sælge færdigpakkede fødevarer som ex. slik og is."
+                  ></v-checkbox>
+
+                    <v-checkbox
+                    v-model="activity_emballage"
+                    label="Jeg skal sælge emballage, keramik eller andet som skal i kontakt med fødevarer"
+                  ></v-checkbox>
+                    
+                    <v-checkbox
+                    v-model="activity_bagvaerk"
+                    label="Jeg skal bage og lave kager."
+                  ></v-checkbox>
+                    
+                 </v-card-text>
+                   
+                 <v-card-actions>
+                   <v-btn
+                      color="primary"
+                      @click="e1 = 4"
+                      elevation="2"
+                      tile
+                      x-large
+                    >
+                      Næste
+                    </v-btn>
+                 </v-card-actions>
+                  
+                </v-card>
+                
+              </v-stepper-content>
+              
+              <v-stepper-content step="4">
+             
+                <v-card
+                  class="mb-12 pa-10"
+                  flat
+                >
+                  <v-card-title class="font-weight-bold">
+                    Hvilke aktiviteter passer på dine virksomhed
+                  </v-card-title>
+                  <v-card-subtitle>
+                    Vælg gerne flere
+                  </v-card-subtitle>
+                  <v-card-text>
+
+                     <v-checkbox
+                    v-model="activity_transport"
+                    label="Jeg skal transportere fødevarer."
+                  ></v-checkbox>
+
+                    <v-checkbox
+                    v-model="activity_import"
+                    label="Jeg skal importere fødevarer og/eller drikkevarer."
+                  ></v-checkbox>
+
+                    <v-checkbox
+                    v-model="activity_foodtruck"
+                    label="Jeg skal tilberede mad fra en mobil vogn. Fx. Foodtruck, pølsevogn og kaffevogn."
+                  ></v-checkbox>
+
+                    <v-checkbox
+                    v-model="activity_selvproducere"
+                    label="Jeg skal selv producere, pakke og/eller ompakke fødevarer."
+                  ></v-checkbox>
+
+                  <v-checkbox
+                    v-model="activity_kosttilskud"
+                    label="Jeg skal importere, producere og/eller sælge kosttilskud."
+                  ></v-checkbox>
+
+
+                  <v-checkbox
+                    v-model="activity_nytprodukt"
+                    label="Jeg skal producere eller markedsføre et produkt som ikke allerede er på markedet."
+                  ></v-checkbox>
+    
+                 </v-card-text>
+                   
+                 <v-card-actions>
+                   <v-btn
+                      color="primary"
+                      @click="e1 = 5"
+                      elevation="2"
+                      tile
+                      x-large
+                    >
+                      Næste
+                    </v-btn>
+                 </v-card-actions>
+                  
+                </v-card>
+                
+              </v-stepper-content>
+
+              <v-stepper-content step="5">
+             
+                <v-card
+                  class="mb-12 pa-10"
+                  flat
+                >
+                  <v-card-title class="font-weight-bold">
+                    Hvilke aktiviteter passer på dine virksomhed
+                  </v-card-title>
+                  <v-card-subtitle>
+                    Vælg gerne flere
+                  </v-card-subtitle>
+                  <v-card-text>
+
+                   <v-checkbox
+                    v-model="activity_kolfrost"
+                    label="Jeg skal sælge varer der skal på køl eller frost som ex mælk og pålæg"
+                  ></v-checkbox>
+
+                   <v-checkbox
+                    v-model="activity_fisk"
+                    label="Jeg skal behandle og/eller tilberede fisk, fiskevarer og skalddyr."
+                  ></v-checkbox>
+
+                   <v-checkbox
+                    v-model="activity_koed"
+                    label="Jeg skal behandle og/eller tilberede kød, kødprodukter og kødpålæg"
+                  ></v-checkbox>
+                    
+                  <v-checkbox
+                    v-model="activity_alkohol"
+                    label="Jeg skal sælge vin, spiritus eller andre drikke med alkohol"
+                  ></v-checkbox>
+                    
+                  <v-checkbox
+                    v-model="activity_oekologi"
+                    label="Jeg skal sælge økologiske fødevarer."
+                  ></v-checkbox>
+                    
+                    <v-checkbox
+                    v-model="activity_opvarm_nedkol"
+                    label="Jeg skal opvarme, nedkøle eller varmholde fødevarer."
+                  ></v-checkbox>
+   
+                    
+                 </v-card-text>
+                   
+                 <v-card-actions>
+                   <v-btn
+                      color="primary"
+                      @click="e1 = 6"
+                      elevation="2"
+                      tile
+                      x-large
+                    >
+                      Næste
+                    </v-btn>
+                 </v-card-actions>
+                  
+                </v-card>
+                
+              </v-stepper-content>
+
+              <v-stepper-content step="6">
+                <v-card
+                 class="mb-12 pa-10"
+                 flat
+                 v-if="bagatel == 1"
+                >
+                 <v-card-title class="font-weight-bold">
+                   Det du laver er betegnet som hobbyvirksomhed, og du skal derfor ikke være registreret fødevarevirksomhed.
+                 </v-card-title>
+                 <v-card-subtitle>
+                    Du skal ikke registrere din virksomhed, da dine aktiviteter er under det Fødevarestyrelsen kalder bagatelgrænsen og er betegnet som en hobbyvirksomhed. Du skal dog stadig sikre at den mad du laver eller sælger ikke gør forbrugerne syge.
+                  </v-card-subtitle>
+                  <v-spacer></v-spacer>
+                  <v-card-text>
+
+                    <p>
+                      <strong>Som fødevarevirksomhed under bagatelgrænsen skal du bl.a. overholde de her krav:</strong></p>
+                    <ul>
+                      <li>Fødevare må ikke være sundhedsskadelig eller uegnet til menneskeføde.</li>
+                      <li>Markedsføringen af fødevaren må ikke være vildledende.</li>
+                      <li>Fødevarevirksomheden skal sikre sporbarhed og have dokumentation for, hvorfra råvarerne kommer fra.</li>
+                      <li>Fødevarevirksomheden skal sørge for tilbagetrækning og tilbagekaldelse af fødevarer, der ikke lever op til fødevarelovgivningen, fx ved advarsel i pressen for markedsførte varer.</li>
+                    </ul>
+
+                    <p class="pt-2">
+                      <strong>Det er vigtigt, hvis dine aktiviteter tager til i volume eller indtjening, skal du muligvis registreres.</strong></p>
+                    
+                  </v-card-text>
+                </v-card>
+                <v-card
+                 class="mb-12 pa-10"
+                 flat
+                 v-if="bagatel == 0"
+                >
+                 <v-card-title class="font-weight-bold">
+                   Dit resultat
+                 </v-card-title>
+                 <v-spacer></v-spacer>
+
+                  <v-card-text>
+                    <div class="overline">
+                      Virksomhedstype og pris
+                    </div>
+
+                    <v-row v-if="client_b2c && !client_b2b">
+                      <v-col cols="6">
+                        <v-card-subtitle class="pa-0">
+                        Din virksomhed betegnes som en <strong>detailvirksomhed</strong> og skal derfor leve op til minimumskrav på området for den type virksomhed.
+                        </v-card-subtitle>
+                      </v-col>
+                      <v-col cols="6">
+                        <p><strong>Som registret fødevarevirksomhed skal du betale et gebyr hvert år.</strong></p>
+                        <p>Det koster 549,- kroner i årligt gebyr at være detailvirksomhed.</p>
+                        <p>Virksomheden kan blive opkrævet gebyr for et ekstra kontrolbesøg, hvis reglerne i virksomheden bliver overtrådt.</p>
+                        
+                      </v-col>
+                    </v-row>
+
+                    <v-row v-if="!client_b2c && client_b2b">
+                      <v-col cols="6">
+                        <v-card-subtitle class="pa-0">
+                          Din virksomhed betegnes som en <strong>engrosvirksomhed</strong> og skal derfor leve op til minimumskrav på området for den type virksomhed.
+                        </v-card-subtitle>
+                      </v-col>
+                      <v-col cols="6">
+                        <p><strong>Som registret fødevarevirksomhed skal du betale et gebyr hvert år.</strong></p>
+                        <p>Det koster 1.249,- kroner i årligt gebyr at være engrosvirksomhed.</p>
+                        <p>Virksomheden kan blive opkrævet gebyr for et ekstra kontrolbesøg, hvis reglerne i virksomheden bliver overtrådt.</p>
+                      </v-col>
+                    </v-row>
+
+                    <v-row v-if="client_b2c && client_b2b">
+                      <v-col cols="6">
+                        <v-card-subtitle class="pa-0">
+                          Din virksomhed betegnes som både en <strong>detail og engrosvirksomhed</strong> og skal derfor leve op til minimumskrav på området for den type virksomhed.
+                        </v-card-subtitle>
+                      </v-col>
+                      <v-col cols="6">
+                        <p><strong>Som registret fødevarevirksomhed skal du betale et gebyr hvert år.</strong></p>
+                        <p>Det koster 1.249,- kroner i årligt gebyr at være både detail- og engrosvirksomhed.</p>
+                        <p>Virksomheden kan blive opkrævet gebyr for et ekstra kontrolbesøg, hvis reglerne i virksomheden bliver overtrådt.</p>
+                      </v-col>
+                    </v-row>
+
+                    <v-divider class="pb-4"></v-divider>
+
+                    <div class="overline">
+                      Registrering
+                    </div>
+
+                    <v-row>
+                      <v-col cols="6">
+                        <v-card-subtitle class="pa-0">
+                        Du skal <strong>registrere</strong> din virksomhed
+                        </v-card-subtitle>
+                      </v-col>
+                      <v-col cols="6">
+                        <p>Når du har registreret din fødevarevirksomhed, bliver du kontaktet af Fødevarestyrelsen.</p>
+                        <p> I første omgang modtager du et brev med de ting du skal være opmærksom inden du starter din virksomhed. Derefter ringer vi til dig for at aftale nærmere omkring første kontrolbesøg.</p><p> Vi kommer på første kontrolbesøg inden for 2 måneder.</p>
+                        <p><strong>På det første kontrolbesøg skal du som minimum kunne fremvise din risikoanalyse og egenkontrol.</strong><br>På besøget har den tilsynsførende god tid til at vejlede om reglerne på fødevareområdet og til at fortælle, hvad du som virksomhed kan forvente af dit samarbejde med Fødevarestyrelsen.
+                        </p>
+                        
+                      </v-col>
+                    </v-row>
+
+                    <v-divider class="pb-4"></v-divider>
+
+                    <div class="overline">
+                      Egenkontrol & risikoanalyse (mangler regel)
+                    </div>
+
+                    
+                    <div>
+                    <v-row v-if="
+                      activity_restaurant || 
+                      activity_bagvaerk ||
+                      activity_nytprodukt ||
+                      activity_oekologi ||
+                      activity_fisk ||
+                      activity_koed ||
+                      activity_opvarm_nedkol ||
+                      activity_kolfrost ||
+                      activity_foodtruck ||
+                      activity_selvproducere
+                    ">
+                      <v-col cols="6">
+                        <v-card-subtitle class="pa-0">
+                          Du skal lave en skriftlig risikoanalyse og skriftlig egenkontrol
+                        </v-card-subtitle>
+                      </v-col>
+                      <v-col cols="6">
+                        <p>Du skal at sikre, at dine fødevarer er i orden, så folk ikke bliver syge. Du skal derfor lave en skriftlig
+                          risikoanalyse og et egenkontrolprogram. Risikoanalysen er fundamentet for din egenkontrol.</p>
+
+                        <p>Risikoanalysen giver dig et overblik over hvilke aktiviteter i din virksomhed, der kan gå galt og gøre folk syge
+                          og også hvad din virksomhed skal gøre for at forebygge at det ikke sker.</p>
+
+                        <p><strong>En risikoanalyse er en gennemgang
+                          af sammenhængen mellem:</strong>
+                          <ul>
+                            <li>Virksomhedens fødevareaktiviteter</li>
+                            <li>Risici forbundet med aktiviteterne – dvs. hvor det kan gå galt, så fødevarerne kan blive farlige</li>
+                            <li>Styringsmuligheder – dvs. en beskrivelse af, hvad din virksomhed kan gøre for at forebygge at noget
+                            går galt, så fødevarerne bliver farlige.</li>
+                          </ul>
+                        </p>
+
+                        <p>
+                          Derudover skal du lave et skriftligt egenkontrolprogram. Her skal du beskrive, hvordan du vil føre kontrol
+                          med de aktiviteter i din virksomhed, der har stor betydning for fødevaresikkerheden. Din risikoanalyse giver
+                          dig overblikket over de kritiske kontrolpunkter, som kræver skriftlig egenkontrolprogram.</p>
+                        
+                      </v-col>
+                    </v-row>
+
+                    <v-row v-else>
+                      <v-col cols="6">
+                        <v-card-subtitle class="pa-0">
+                          Du skal lave en risikoanalyse
+                        </v-card-subtitle>
+                      </v-col>
+                      <v-col cols="6">
+                        <p>Fødevarestyrelsen kategoriserer din virksomhed som af lav risiko for fødevaresikkerheden. Det betyder at
+du ikke skal lave et skriftligt egenkontrol program, men når Fødevarestyrelsen kommer på kontrol skal du
+kunne fortælle om hvilke aktiviteter der kan gøre folk syge og hvorfor de er vigtige for
+fødevaresikkerheden. </p>
+                      <p>Du skal af samme grund lave en skriftlig risikoanalyse. Begge dele bliver kontrolleret
+under et kontrolbesøg.
+                        </p>
+                        
+                      </v-col>
+                    </v-row>
+                  </div>
+
+                    <v-divider class="pb-4"></v-divider>
+                    <div class="overline">
+                      Autorisation og første salg
+                    </div>
+
+                    <v-row>
+                      <v-col cols="6">
+                        <v-card-subtitle class="pa-0">
+                          Hvornår må jeg lave mit første salg og starte produktion?
+                        </v-card-subtitle>
+                      </v-col>
+                      <v-col cols="6">
+                        <p>Som udgangspunkt må du gå i gang med det samme når du har lavet din risikoanalyse, har taget stilling til
+                        din egenkontrol og har registreret din virksomhed.</p>
+                        <p>Når du har udfyldt registreringsblanketten får du en kvittering på mail vedrørende registrering af
+virksomheden.</p><p> <strong>I kvitteringen står der hvorvidt du må starte din virksomhed til den selvangivne startdato</strong>. I
+mailen er der også en kontrolinformationsblanket som skal hænge synligt inden Fødevarestyrelsen har
+været på besøg først gang.</p>
+                      
+                      </v-col>
+                    </v-row>
+
+                    <v-divider class="pb-4"></v-divider>
+                    <div class="overline">
+                      Hygiejneregler (mangler regler)
+                    </div>
+
+                    <v-row>
+                      <v-col cols="6">
+                        <v-card-subtitle class="pa-0">
+                          Du skal have styr på regler om <strong>indretning</strong> og <strong>hygiejne</strong>
+                        </v-card-subtitle>
+                      </v-col>
+                      <v-col cols="6">
+                        <p>Det er et krav at du har lokaler i en passende størrelse, og at de er indrettet, så de passer til aktiviteterne i din
+virksomhed. Det gælder også, hvis du driver virksomhed fra en privat bolig.</p>
+                        <p>Derudover skal virksomheden være nem at holde ren, og du skal indrette produktionen, så du undgår, at
+bakterier og virus kan blive overført mellem fødevarer eller fra personer til fødevarer.</p>
+                        <p>Vi har samlet de dele fra hygiejnevejledningen der kan hjælpe dig til at leve op til kravene.</p>
+                      
+                      </v-col>
+                    </v-row>
+
+                    <v-divider class="pb-4"></v-divider>
+                    <div class="overline">
+                      Særregler for dig (mangler regler)
+                    </div>
+
+                    <v-row v-if="activity_oekologi">
+                      <v-col cols="6">
+                        <v-card-subtitle class="pa-0">
+                          Særregler om Økologi
+                        </v-card-subtitle>
+                      </v-col>
+                      <v-col cols="6">
+                        <p>Når du arbejder med økologi må du ikke starte din virksomhed op uden at modtaget en økologirapport fra
+                          Fødevarestyrelsen.<br>Rapporten kan først udarbejdes, når Fødevarestyrelsen har fået dit egenkontrolprogram
+                          for de økologiske aktiviteter. Du skal sende dit egenkontrolprogram sammen med formularen.</p>
+                          Hent formular?!
+                          <p>
+                          Du skal også være opmærksom på at du ikke må bruge det økologiske spisemærke uden selvstændig
+                          godkendelse. Du kan først ansøge om spisemærket, når din virksomhed har været i drift i mindst tre
+                          måneder.</p>
+                      
+                      </v-col>
+                    </v-row>
+                    <v-row v-if="activity_alkohol">
+                      <v-col cols="6">
+                        <v-card-subtitle class="pa-0">
+                          Særregler om alkohol
+                        </v-card-subtitle>
+                      </v-col>
+                      <v-col cols="6">
+                        <p>Hvis du skal sælge alkohol på en restauration mm skal du søge om alkoholbevilling (hos hvem) inden du starter din virksomhed.</p>
+                      </v-col>
+                    </v-row>
+    
+                  </v-card-text>
+                  
+               </v-card>
+              
+
+                
+              </v-stepper-content>
+            </v-stepper-items>
+          </v-stepper>
+          
+          
+
+        </v-row>
+
+      </v-container>
+      <v-card
+          class="mt-12"
+          color="grey lighten-2"
+          flat
+          >
+    <v-card-text>
+      <v-row>
+        <v-col cols="6">
+          <p>bagatel: {{ bagatel }}</p>
+          <p>client_b2c: {{ client_b2c }}</p>
+          <p>client_b2b: {{ client_b2b }}</p> 
+        </v-col>
+        <v-col cols="6">
+          <p>activity_restaurant : {{ activity_restaurant }}</p>
+          <p>activity_bagvaerk : {{ activity_bagvaerk }}</p>
+          <p>activity_faerdigpakket : {{ activity_faerdigpakket }}</p>
+          <p>activity_emballage : {{ activity_emballage }}</p>
+          <p>activity_egenavl : {{ activity_egenavl }}</p>
+          <p>activity_nytprodukt : {{ activity_nytprodukt }}</p>
+          <p>activity_stalddoer : {{ activity_stalddoer }}</p>
+          <p>activity_internet : {{ activity_internet }}</p>
+          <p>activity_alkohol : {{ activity_alkohol }}</p>
+          <p>activity_oekologi : {{ activity_oekologi }}</p>
+          <p>activity_kosttilskud : {{ activity_kosttilskud }}</p>
+          <p>activity_fisk : {{ activity_fisk }}</p>
+          <p>activity_koed : {{ activity_koed }}</p>
+          <p>activity_opvarm_nedkol : {{ activity_opvarm_nedkol }}</p>
+          <p>activity_kolfrost : {{ activity_kolfrost }}</p>
+          <p>activity_foodtruck : {{ activity_foodtruck }}</p>
+          <p>activity_transport : {{ activity_transport }}</p>
+          <p>activity_import : {{ activity_import }}</p>
+          <p>activity_selvproducere : {{ activity_selvproducere }}</p>
+        </v-col>
+      </v-row>
+      
+      
+    </v-card-text>
+  </v-card>
+   </v-app>
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      vuetify: new Vuetify({
+        theme: {
+          themes: {
+            light: {
+              primary: '#00587A',
+              secondary: '#fff',
+              anchor: '#fff',
+            },
+          },
+        },
+      }),
+      data () {
+        return {
+          bagatel: 0,
+          client_b2b: false,
+          client_b2c: false,
+          activity_restaurant: false,
+          activity_bagvaerk: false,
+          activity_faerdigpakket: false,
+          activity_emballage: false,
+          activity_egenavl: false,
+          activity_nytprodukt: false,
+          activity_stalddoer: false,
+          activity_internet: false,
+          activity_alkohol: false,
+          activity_oekologi: false,
+          activity_kosttilskud: false,
+          activity_fisk: false,
+          activity_koed: false,
+          activity_opvarm_nedkol: false,
+          activity_kolfrost: false,
+          activity_foodtruck: false,
+          activity_transport: false,
+          activity_import: false,
+          activity_selvproducere: false,
+          e1: 1,
+        }
+      },
+    })
+
+  </script>
+</body>
+</html>
