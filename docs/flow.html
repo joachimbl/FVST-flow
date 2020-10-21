@@ -166,7 +166,7 @@
                       <v-checkbox v-model="client_b2c"></v-checkbox>
                     </v-list-item-action>
                     <v-list-item-content>
-                      <v-list-item-title class="text-wrap font-weight-bold">Den almindelige forbruger</v-list-item-title>
+                      <v-list-item-title class="text-wrap">Den almindelige forbruger</v-list-item-title>
                     </v-list-item-content>
                   </v-list-item>
 
@@ -175,7 +175,7 @@
                       <v-checkbox v-model="client_b2b"></v-checkbox>
                     </v-list-item-action>
                     <v-list-item-content>
-                      <v-list-item-title class="text-wrap font-weight-bold">Virksomheder</v-list-item-title>
+                      <v-list-item-title class="text-wrap">Virksomheder</v-list-item-title>
                     </v-list-item-content>
                   </v-list-item>
 
@@ -313,47 +313,78 @@
                   flat
                 >
                   <v-card-title class="font-weight-bold">
-                    Hvilke aktiviteter passer på dine virksomhed
+                    Hvilke af disse aktiviteter passer på dine virksomhed
                   </v-card-title>
                   <v-card-subtitle>
                     Vælg gerne flere
                   </v-card-subtitle>
                   <v-card-text>
 
-                    <v-checkbox
-                    v-model="activity_restaurant"
-                    label="Jeg skal sælge mad og drikke på restaurant, kantine, i café eller take-away."
-                  ></v-checkbox>
 
-                   <v-checkbox
-                    v-model="activity_stalddoer"
-                    label="Jeg skal sælge produkter i egen gårdbutik."
-                  ></v-checkbox>
+                  <v-list-item >
+                    <v-list-item-action>
+                      <v-checkbox v-model="activity_restaurant"></v-checkbox>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                      <v-list-item-title class="text-wrap">Jeg skal sælge mad og drikke på restaurant, kantine, i café eller take-away.</v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
 
-                   <v-checkbox
-                    v-model="activity_egenavl"
-                    label="Jeg skal sælge fødevarer jeg selv har avlet, sanket eller fisket. Fx bær, svampe, honning, fisk eller æg."
-                  ></v-checkbox>
+                  <v-list-item >
+                    <v-list-item-action>
+                      <v-checkbox v-model="activity_stalddoer"></v-checkbox>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                      <v-list-item-title class="text-wrap">Jeg skal sælge produkter i egen gårdbutik.</v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
 
-                    <v-checkbox
-                    v-model="activity_internet"
-                    label="Jeg skal sælge fødevarer via internettet."
-                  ></v-checkbox>
+                  <v-list-item >
+                    <v-list-item-action>
+                      <v-checkbox v-model="activity_egenavl"></v-checkbox>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                      <v-list-item-title class="text-wrap">Jeg skal sælge fødevarer jeg selv har avlet, sanket eller fisket. Fx bær, svampe, honning, fisk eller æg.</v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
 
-                   <v-checkbox
-                    v-model="activity_faerdigpakket"
-                    label="Jeg skal sælge færdigpakkede fødevarer som ex. slik og is."
-                  ></v-checkbox>
+                  <v-list-item >
+                    <v-list-item-action>
+                      <v-checkbox v-model="activity_internet"></v-checkbox>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                      <v-list-item-title class="text-wrap">Jeg skal sælge fødevarer via internettet.</v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
 
-                    <v-checkbox
-                    v-model="activity_emballage"
-                    label="Jeg skal sælge emballage, keramik eller andet som skal i kontakt med fødevarer"
-                  ></v-checkbox>
+                  <v-list-item >
+                    <v-list-item-action>
+                      <v-checkbox v-model="activity_faerdigpakket"></v-checkbox>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                      <v-list-item-title class="text-wrap">Jeg skal sælge færdigpakkede fødevarer som ex. slik og is.</v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
+
+
+                   <v-list-item >
+                    <v-list-item-action>
+                      <v-checkbox v-model="activity_emballage"></v-checkbox>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                      <v-list-item-title class="text-wrap">Jeg skal sælge emballage, keramik eller andet som skal i kontakt med fødevarer</v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
+
+                   <v-list-item >
+                    <v-list-item-action>
+                      <v-checkbox v-model="activity_bagvaerk"></v-checkbox>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                      <v-list-item-title class="text-wrap">Jeg skal bage og lave kager.</v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
                     
-                    <v-checkbox
-                    v-model="activity_bagvaerk"
-                    label="Jeg skal bage og lave kager."
-                  ></v-checkbox>
                     
                  </v-card-text>
                    
@@ -380,43 +411,70 @@
                   flat
                 >
                   <v-card-title class="font-weight-bold">
-                    Hvilke aktiviteter passer på dine virksomhed
+                    Hvilke af disse aktiviteter passer på dine virksomhed
                   </v-card-title>
                   <v-card-subtitle>
                     Vælg gerne flere
                   </v-card-subtitle>
                   <v-card-text>
 
-                     <v-checkbox
-                    v-model="activity_transport"
-                    label="Jeg skal transportere fødevarer."
-                  ></v-checkbox>
+              
 
-                    <v-checkbox
-                    v-model="activity_import"
-                    label="Jeg skal importere fødevarer og/eller drikkevarer."
-                  ></v-checkbox>
+                  <v-list-item >
+                    <v-list-item-action>
+                      <v-checkbox v-model="activity_transport"></v-checkbox>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                      <v-list-item-title class="text-wrap">Jeg skal transportere fødevarer.</v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
 
-                    <v-checkbox
-                    v-model="activity_foodtruck"
-                    label="Jeg skal tilberede mad fra en mobil vogn. Fx. Foodtruck, pølsevogn og kaffevogn."
-                  ></v-checkbox>
+                  <v-list-item >
+                    <v-list-item-action>
+                      <v-checkbox v-model="activity_import"></v-checkbox>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                      <v-list-item-title class="text-wrap">Jeg skal importere fødevarer og/eller drikkevarer.</v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
 
-                    <v-checkbox
-                    v-model="activity_selvproducere"
-                    label="Jeg skal selv producere, pakke og/eller ompakke fødevarer."
-                  ></v-checkbox>
+                  <v-list-item >
+                    <v-list-item-action>
+                      <v-checkbox v-model="activity_foodtruck"></v-checkbox>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                      <v-list-item-title class="text-wrap">Jeg skal tilberede mad fra en mobil vogn. Fx. Foodtruck, pølsevogn og kaffevogn.</v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
 
-                  <v-checkbox
-                    v-model="activity_kosttilskud"
-                    label="Jeg skal importere, producere og/eller sælge kosttilskud."
-                  ></v-checkbox>
 
+                   <v-list-item >
+                    <v-list-item-action>
+                      <v-checkbox v-model="activity_selvproducere"></v-checkbox>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                      <v-list-item-title class="text-wrap">Jeg skal selv producere, pakke og/eller ompakke fødevarer.</v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
 
-                  <v-checkbox
-                    v-model="activity_nytprodukt"
-                    label="Jeg skal producere eller markedsføre et produkt som ikke allerede er på markedet."
-                  ></v-checkbox>
+                   <v-list-item >
+                    <v-list-item-action>
+                      <v-checkbox v-model="activity_kosttilskud"></v-checkbox>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                      <v-list-item-title class="text-wrap">Jeg skal importere, producere og/eller sælge kosttilskud.</v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
+
+                  <v-list-item >
+                    <v-list-item-action>
+                      <v-checkbox v-model="activity_nytprodukt"></v-checkbox>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                      <v-list-item-title class="text-wrap">Jeg skal producere eller markedsføre et produkt som ikke allerede er på markedet.</v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
+
     
                  </v-card-text>
                    
@@ -450,36 +508,60 @@
                   </v-card-subtitle>
                   <v-card-text>
 
-                   <v-checkbox
-                    v-model="activity_kolfrost"
-                    label="Jeg skal sælge varer der skal på køl eller frost som ex mælk og pålæg"
-                  ></v-checkbox>
+                  <v-list-item >
+                    <v-list-item-action>
+                      <v-checkbox v-model="activity_kolfrost"></v-checkbox>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                      <v-list-item-title class="text-wrap">Jeg skal sælge varer der skal på køl eller frost som ex mælk og pålæg.</v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
 
-                   <v-checkbox
-                    v-model="activity_fisk"
-                    label="Jeg skal behandle og/eller tilberede fisk, fiskevarer og skalddyr."
-                  ></v-checkbox>
+                  <v-list-item >
+                    <v-list-item-action>
+                      <v-checkbox v-model="activity_fisk"></v-checkbox>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                      <v-list-item-title class="text-wrap">Jeg skal behandle og/eller tilberede fisk, fiskevarer og skalddyr.</v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
 
-                   <v-checkbox
-                    v-model="activity_koed"
-                    label="Jeg skal behandle og/eller tilberede kød, kødprodukter og kødpålæg"
-                  ></v-checkbox>
+                  <v-list-item >
+                    <v-list-item-action>
+                      <v-checkbox v-model="activity_koed"></v-checkbox>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                      <v-list-item-title class="text-wrap">Jeg skal behandle og/eller tilberede kød, kødprodukter og kødpålæg.</v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
+
+
+                  <v-list-item >
+                    <v-list-item-action>
+                      <v-checkbox v-model="activity_alkohol"></v-checkbox>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                      <v-list-item-title class="text-wrap">Jeg skal sælge vin, spiritus eller andre drikke med alkohol.</v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
                     
-                  <v-checkbox
-                    v-model="activity_alkohol"
-                    label="Jeg skal sælge vin, spiritus eller andre drikke med alkohol"
-                  ></v-checkbox>
+                  <v-list-item >
+                    <v-list-item-action>
+                      <v-checkbox v-model="activity_oekologi"></v-checkbox>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                      <v-list-item-title class="text-wrap">Jeg skal sælge økologiske fødevarer.</v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
                     
-                  <v-checkbox
-                    v-model="activity_oekologi"
-                    label="Jeg skal sælge økologiske fødevarer."
-                  ></v-checkbox>
-                    
-                    <v-checkbox
-                    v-model="activity_opvarm_nedkol"
-                    label="Jeg skal opvarme, nedkøle eller varmholde fødevarer."
-                  ></v-checkbox>
-   
+                  <v-list-item >
+                    <v-list-item-action>
+                      <v-checkbox v-model="activity_opvarm_nedkol"></v-checkbox>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                      <v-list-item-title class="text-wrap">Jeg skal opvarme, nedkøle eller varmholde fødevarer.</v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
                     
                  </v-card-text>
                    
@@ -531,9 +613,10 @@
                 <v-card
                  class="mb-12 pa-10"
                  flat
+                 color="white"
                  v-if="bagatel == 0"
                 >
-                 <v-card-title class="font-weight-bold">
+                 <v-card-title class="font-weight-bold justify-center">
                    Dit resultat
                  </v-card-title>
                  <v-spacer></v-spacer>
@@ -727,7 +810,7 @@ under et kontrolbesøg.
                         <p>Vi har samlet de dele fra hygiejnevejledningen der kan hjælpe dig til at leve op til kravene. 
                         </p>
 
-                        <v-btn href="http://fvst.dk" color="white" depressed>
+                        <v-btn href="http://fvst.dk" depressed>
                           her er et link
                         </v-btn>
                       
@@ -783,9 +866,8 @@ under et kontrolbesøg.
                     </v-row>
     
                   </v-card-text>
-
-            
-                   <v-btn
+                  <v-card-actions class="justify-center flex-column">
+                    <v-btn
                       color="primary"
                       href="https://saas.resultmaker.com/virkfrontend/fvst.aspx?id=autorisation_registrering_foedevarevirksomhed"
                       elevation="2"
@@ -794,8 +876,21 @@ under et kontrolbesøg.
                     >
                       Register din fødevarevirksomhed med NemID
                     </v-btn>
-                    <p>Husk også at registrere din vikrsomhed på <v-btn text href="virk.dk">virk.dk</v-btn></p>
-             
+                    <p>Husk også at registrere din vikrsomhed på Virk.dk.</p>
+                    <v-row clas="mt-10">
+                      <v-btn
+                        color="white"
+                        href="https://saas.resultmaker.com/virkfrontend/fvst.aspx?id=autorisation_registrering_foedevarevirksomhed"
+                        elevation="2"
+                        class="col-xs-12 col-md-6"
+                        tile
+                        block
+                        large
+                      >
+                        link
+                      </v-btn>
+                    </v-row>
+                  </v-card-actions>
                   
                </v-card>
               
