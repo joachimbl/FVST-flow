@@ -332,7 +332,7 @@
 
                   <v-list-item >
                     <v-list-item-action>
-                      <v-checkbox v-model="activity_stalddoer"></v-checkbox>
+                      <v-checkbox v-model="activity_gaardbutik"></v-checkbox>
                     </v-list-item-action>
                     <v-list-item-content>
                       <v-list-item-title class="text-wrap">Jeg skal sælge produkter i egen gårdbutik.</v-list-item-title>
@@ -810,8 +810,44 @@ under et kontrolbesøg.
                         <p>Vi har samlet de dele fra hygiejnevejledningen der kan hjælpe dig til at leve op til kravene. 
                         </p>
 
-                        <v-btn href="http://fvst.dk" depressed>
-                          her er et link
+                        <v-btn v-if="activity_restaurant" href="https://www.foedevarestyrelsen.dk/Selvbetjening/Vejledninger/Hygiejnevejledning/Sider/result.aspx?key=74774d1a-c0a2-4ead-a7e0-d5590b5aa721" depressed target="_blank" class="mb-1">
+                          Hygiejneregler for restaurant, take- away mm.
+                        </v-btn>
+
+                        <v-btn v-if="activity_transport" href="https://www.foedevarestyrelsen.dk/Selvbetjening/Vejledninger/Hygiejnevejledning/Sider/30--Transport-af-foedevarer.aspx?key=7f07f281-dc9a-4664-be7f-11baa61b6fd4" depressed target="_blank" class="mb-1">
+                            Transport af fødevarer
+                        </v-btn>
+
+                        <v-btn v-if="activity_internet" href="https://www.foedevarestyrelsen.dk/Foedevarer/E-handel/Sider/E-handel.aspx" depressed target="_blank" class="mb-1">
+                            E-handel med fødevarer
+                        </v-btn>
+
+                        <v-btn v-if="activity_foodtruck" href="https://www.foedevarestyrelsen.dk/Selvbetjening/Vejledninger/Hygiejnevejledning/Sider/15--Mobile-foedevarevirksomheder-og-midlertidige-lokaler.aspx?key=9e785a3c-d20a-447c-852a-053926724540" depressed target="_blank" class="mb-1">
+                            Regler for mobile fødevarevirksomheder
+                        </v-btn>
+
+                        <v-btn v-if="activity_gaardbutik" href="https://www.foedevarestyrelsen.dk/Selvbetjening/Vejledninger/Hygiejnevejledning/Sider/result.aspx?key=d42089f2-f6d5-4aa7-acea-73b72e4f9ce3" depressed target="_blank" class="mb-1">
+                            Regler for gårdbutik
+                        </v-btn>
+
+                        <v-btn v-if="activity_egenavl" href="https://www.foedevarestyrelsen.dk/Selvbetjening/Vejledninger/Hygiejnevejledning/Sider/result.aspx?key=8b360723-b792-4ffb-8585-0612c1884b9c" depressed target="_blank" class="mb-1">
+                            Regler for stalddørssalg og egen produktion
+                        </v-btn>
+
+                        <v-btn v-if="activity_faerdigpakket" href="https://www.foedevarestyrelsen.dk/Selvbetjening/Vejledninger/Hygiejnevejledning/Sider/4-3-Opbevaring-af-f%C3%B8devarer.aspx" depressed target="_blank" class="mb-1">
+                            Opbevaring af færdigpakkede fødevarer
+                        </v-btn>
+
+                        <v-btn v-if="activity_kolfrost" href="https://www.foedevarestyrelsen.dk/Selvbetjening/Vejledninger/Hygiejnevejledning/Sider/26--Koelekrav-for-foedevarer.aspx?key=aae4494d-aeca-4f95-a4be-a10169a5ea11" depressed target="_blank" class="mb-1">
+                            Kølekrav for fødevarer
+                        </v-btn>
+
+                        <v-btn v-if="activity_emballage" href="https://www.foedevarestyrelsen.dk/Selvbetjening/Vejledninger/Hygiejnevejledning/Sider/29--Indpakning-og-emballering-af-foedevarer.aspx?key=4d56bc6f-86bd-4c7d-8fb5-b549158e2e14" depressed target="_blank" class="mb-1">
+                            Indpakning og emballering af fødevarer
+                        </v-btn>
+
+                        <v-btn v-if="activity_opvarm_nedkol" href="https://www.foedevarestyrelsen.dk/Selvbetjening/Vejledninger/Hygiejnevejledning/Sider/27--Varmebehandling-og-varmholdelse-af-foedevarer.aspx" depressed target="_blank" class="mb-1">
+                            Varmebehandling og varmholdelse af fødevarer
                         </v-btn>
                       
                       </v-col>
@@ -924,7 +960,7 @@ under et kontrolbesøg.
           <p>activity_emballage : {{ activity_emballage }}</p>
           <p>activity_egenavl : {{ activity_egenavl }}</p>
           <p>activity_nytprodukt : {{ activity_nytprodukt }}</p>
-          <p>activity_stalddoer : {{ activity_stalddoer }}</p>
+          <p>activity_gaardbutik : {{ activity_gaardbutik }}</p>
           <p>activity_internet : {{ activity_internet }}</p>
           <p>activity_alkohol : {{ activity_alkohol }}</p>
           <p>activity_oekologi : {{ activity_oekologi }}</p>
@@ -973,7 +1009,7 @@ under et kontrolbesøg.
           activity_emballage: false,
           activity_egenavl: false,
           activity_nytprodukt: false,
-          activity_stalddoer: false,
+          activity_gaardbutik: false,
           activity_internet: false,
           activity_alkohol: false,
           activity_oekologi: false,
