@@ -8,7 +8,7 @@
 
     * { font-family: "Oxygen" }
 
-    p, li {font-size: 16px; margin-bottom: 10px;}
+    p, li {font-size: 18px; line-height: 1.5em;}
 
     .v-list-item__subtitle, .v-list-item__title {
         overflow: visible; 
@@ -27,7 +27,6 @@
 
     .flow, .v-stepper {
       background: #EBF2F4 !important;
-      color: #fff !important;
     }
 
     .v-stepper, .v-stepper__header {
@@ -35,11 +34,11 @@
     }
 
     .theme--light.v-application {
-      background: #fff;
+      background: #EBF2F4;
     }
 
     h1 {
-      color: #fff;
+      color: #00587A;
       text-align: center;
       font-weight: 700;
       font-size: 2.3rem;
@@ -47,11 +46,10 @@
     }
 
     h2 {
-      color: #fff;
+      color: #00587A;
       text-align: center;
       font-weight: 300;
-      font-size: 1.5rem;
-      margin-bottom: 3rem;
+      font-size: 1.7rem;
     }
 
     .v-card__text {
@@ -101,8 +99,7 @@
 <body>
   <div id="app">
   <v-app id="inspire">
-    <v-container>
-      <div v-if="e1 != 6" class="pt-12 pb-8 primary">
+    <div v-if="e1 != 6" class="pt-12">
         <h1>Kom godt i gang med din fødevarevirksomhed</h1>
         <h2>Følg guiden og få vejledning og materiale<br> der passer til din kommende fødevarevirksomhed.</h2>
       </div>
@@ -111,50 +108,56 @@
         <h1>Sådan!</h1>
         <h2></h2>
       </div>
+    <v-container>
+      
 
 
       <v-row
-        class="mb-6 flow px-5 primary"
+        class="mb-6 flow px-5"
         justify="center"
         no-gutters
       >
-        <v-col md="6" class="pb-10"> 
+        
+        <v-col md="12" class="pb-10"> 
           <v-stepper v-model="e1" flat>
 
             <v-stepper-items>
               <v-stepper-content step="0">
-                <v-card
-                  class="mb-12 px-10"
-                  flat
-                >
-                  <v-card-text>
-                    <ul class="v-card__title">
-                      <li>Se hvornår du må starte op og om du skal være registreret</li>
-                      <li>Se hvilke udgifter der er forbundet med at være registreret</li>
-                      <li>Få specifik information om minimumskrav til risikoanalyse, egenkontrol og hygiejne</li>
-                      <li>Få relevante blanketter og links til din virksomhed</li>
-                      <li>Få vejledning ift hvordan du kommer videre med netop din type fødevarevirksomhed</li>
+
+                <v-row class="resultrow">
+                  <v-col cols="6">
+                    <img src="https://www.foedevarestyrelsen.dk/Foedevarer/Startpakke-for-nye-foedevarevirksomheder/PublishingImages/sites.png" class="mt-10" width="100%">
+                  </v-col>
+                  <v-col cols="6">
+                    <ul>
+                      <li class="v-card__subtitle">Se hvornår du må starte op og om du skal være registreret</li>
+                      <li class="v-card__subtitle">Få specifik information om minimumskrav til risikoanalyse, egenkontrol og hygiejne</li>
+                      <li class="v-card__subtitle">Få relevante blanketter og links til din virksomhed</li>
                     </ul>
-                    <v-btn
-                      color="primary"
-                      href="flow.html"
-                      elevation="2"
-                      tile
-                      x-large
-                    >
-                      Kom i gang
-                    </v-btn>
-                    
-                  
-                </v-card>
+                    <v-card-actions>
+                      
+                      <v-spacer></v-spacer>
+                      <v-btn
+                          color="primary"
+                          href="flow.html"
+                          elevation="2"
+                          tile
+                          class="mt-2"
+                          x-large
+                        >
+                          Start
+                        </v-btn>
+                    </v-card-actions>
+                  </v-col>
+                </v-row>
+
               </v-stepper-content>
 
             </v-stepper-items>
           </v-stepper>
         </v-col>
-        <v-col md="6" class="pa-10"> 
-          <img src="https://www.foedevarestyrelsen.dk/SiteCollectionDocuments/Kommunikation%20og%20Kunderaadgivning/Startpakke/todolist-1.png" width="100%">
-        </v-col>
+
+        
           
           
 
