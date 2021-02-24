@@ -204,7 +204,7 @@
                       <v-checkbox v-model="client_b2b"></v-checkbox>
                     </v-list-item-action>
                     <v-list-item-content>
-                      <v-list-item-title class="text-wrap">Virksomheder</v-list-item-title>
+                      <v-list-item-title class="text-wrap">Fødevarevirksomheder</v-list-item-title>
                     </v-list-item-content>
                   </v-list-item>
 
@@ -254,8 +254,8 @@
                             <v-checkbox :input-value="active"></v-checkbox>
                           </v-list-item-action>
                           <v-list-item-content>
-                            <v-list-item-title class="text-wrap">Jeg sælger mad og drikke <strong>max 10 gange på et år.</strong></v-list-item-title>
-                            <v-list-item-subtitle class="text-wrap"> F.eks via bod eller foodtruck til festivaller eller mindre events få dage ad gangen.</v-list-item-subtitle>
+                            <v-list-item-title class="text-wrap">Jeg sælger mad og drikke højst 10 gange og højst 30 dage på et år.</v-list-item-title>
+                            <v-list-item-subtitle class="text-wrap">Fx via bod, foodtruck på festivaller eller salg af kage få dage ad gangen.</v-list-item-subtitle>
                           </v-list-item-content>
                           </template>
                         </v-list-item>
@@ -266,8 +266,8 @@
                             <v-checkbox :input-value="active"></v-checkbox>
                           </v-list-item-action>
                           <v-list-item-content>
-                            <v-list-item-title class="text-wrap">Jeg har en virksomhed hvor fødevarer udgør <strong>max 50% af omsætningen og højest 50.000 kr. om året.</strong></v-list-item-title>
-                            <v-list-item-subtitle class="text-wrap"> F.eks chokolade eller vin til værtsgaver, eller kaffe i en tøjbutik.</v-list-item-subtitle>
+                            <v-list-item-title class="text-wrap">Jeg sælger fødevarer for højst 50.000 kr om året og det udgør kun 50% af min samlede omsætning.</v-list-item-title>
+                            <v-list-item-subtitle class="text-wrap">Fx fitness-centre, blomsterhandlere og frisør der sælger chokolade, mad, og drikke eller vin til værtsgaver.</v-list-item-subtitle>
                           </v-list-item-content>
                           </template>
                         </v-list-item>
@@ -278,8 +278,8 @@
                             <v-checkbox :input-value="active"></v-checkbox>
                           </v-list-item-action>
                           <v-list-item-content>
-                            <v-list-item-title class="text-wrap">Jeg serverer <strong>mindre måltider</strong> i en børneinstitution eller dagpleje.</v-list-item-title>
-                            <v-list-item-subtitle class="text-wrap"> F.eks som morgenmad, frisk frugt og drikkevarer. Gælder ikke fast frokostordning.</v-list-item-subtitle>
+                            <v-list-item-title class="text-wrap">Jeg serverer små måltider i en børneinstitution eller dagpleje.</v-list-item-title>
+                            <v-list-item-subtitle class="text-wrap">Fx morgenmad, frisk frugt og drikkevarer. Gælder ikke fast frokostordning.</v-list-item-subtitle>
                           </v-list-item-content>
                           </template>
                         </v-list-item>
@@ -290,13 +290,49 @@
                             <v-checkbox :input-value="active"></v-checkbox>
                           </v-list-item-action>
                           <v-list-item-content>
-                            <v-list-item-title class="text-wrap">Jeg sælger, leverer eller donerer mad fra mit private hjem til selskaber af <strong>max 4-5 portioner om ugen.</strong></v-list-item-title>
-                            <v-list-item-subtitle class="text-wrap"> F.eks. overskydende mad til naboen eller brød til arrangementer. </v-list-item-subtitle>
+                            <v-list-item-title class="text-wrap">Jeg sælger, leverer eller donerer mad fra mit private hjem til selskaber af max 4-5 portioner om ugen.</v-list-item-title>
+                            <v-list-item-subtitle class="text-wrap">Fx ekstra portioner aftensmad.</v-list-item-subtitle>
+                          </v-list-item-content>
+                          </template>
+                        </v-list-item>
+
+                        <v-list-item two-line value="5">
+                          <template v-slot:default="{ active }">
+                          <v-list-item-action>
+                            <v-checkbox :input-value="active"></v-checkbox>
+                          </v-list-item-action>
+                          <v-list-item-content>
+                            <v-list-item-title class="text-wrap">Jeg sælger frugt og grønt dyrket i egen have.</v-list-item-title>
+                            <v-list-item-subtitle class="text-wrap">Fx salg af æbler og kartofler eller saft og marmelade og lignede produkter.</v-list-item-subtitle>
+                          </v-list-item-content>
+                          </template>
+                        </v-list-item>
+
+                        <v-list-item two-line value="6">
+                          <template v-slot:default="{ active }">
+                          <v-list-item-action>
+                            <v-checkbox :input-value="active"></v-checkbox>
+                          </v-list-item-action>
+                          <v-list-item-content>
+                            <v-list-item-title class="text-wrap">Jeg sælger honning fra eget bistade, max. 4.000 kg om året.</v-list-item-title>
+                            <v-list-item-subtitle class="text-wrap"></v-list-item-subtitle>
+                          </v-list-item-content>
+                          </template>
+                        </v-list-item>
+
+                        <v-list-item two-line value="7">
+                          <template v-slot:default="{ active }">
+                          <v-list-item-action>
+                            <v-checkbox :input-value="active"></v-checkbox>
+                          </v-list-item-action>
+                          <v-list-item-content>
+                            <v-list-item-title class="text-wrap">Jeg bager brød eller kage til et privat arrangement.</v-list-item-title>
+                            <v-list-item-subtitle class="text-wrap">Fx kirke, sportsklub eller skole.</v-list-item-subtitle>
                           </v-list-item-content>
                           </template>
                         </v-list-item>
                         
-                        <v-list-item value="6" v-if="( bagatel.includes('1') || bagatel.includes('2') || bagatel.includes('3') || bagatel.includes('4') )" disabled>
+                        <v-list-item value="9" v-if="( bagatel.includes('1') || bagatel.includes('2') || bagatel.includes('3') || bagatel.includes('4') || bagatel.includes('5') || bagatel.includes('6') || bagatel.includes('7')  )" disabled>
                           <template v-slot:default="{ active }">
                             <v-list-item-action>
                               <v-checkbox :input-value="active"></v-checkbox>
@@ -308,7 +344,7 @@
                         </v-list-item>
 
 
-                        <v-list-item value="5" v-else>
+                        <v-list-item value="8" v-else>
                           <template v-slot:default="{ active }">
                             <v-list-item-action>
                               <v-checkbox :input-value="active"></v-checkbox>
@@ -332,7 +368,7 @@
                   <v-btn text x-large @click="e1 --" v-if="e1 > 1" class="ma-4">Tilbage</v-btn>
                   
                   <v-btn
-                      v-if="( bagatel.includes('1') || bagatel.includes('2') || bagatel.includes('3') || bagatel.includes('4') )"
+                      v-if="( bagatel.includes('1') || bagatel.includes('2') || bagatel.includes('3') || bagatel.includes('4') || bagatel.includes('5') || bagatel.includes('6') || bagatel.includes('7') )"
                       @click="e1 = 6"
                       color="primary"
                       elevation="2"
@@ -380,7 +416,8 @@
                       <v-checkbox v-model="activity_restaurant"></v-checkbox>
                     </v-list-item-action>
                     <v-list-item-content>
-                      <v-list-item-title class="text-wrap">Jeg skal sælge mad og drikke på restaurant, kantine, i café eller take-away.</v-list-item-title>
+                      <v-list-item-title class="text-wrap">Jeg skal tilberede mad og drikke til salg i restaurant, kantine, café eller take-away.</v-list-item-title>
+                      <v-list-item-subtitle class="text-wrap">Fx Andre spisesteder i en gårdbutik, museumscafé el. </v-list-item-subtitle>
                     </v-list-item-content>
                   </v-list-item>
 
@@ -389,7 +426,8 @@
                       <v-checkbox v-model="activity_gaardbutik"></v-checkbox>
                     </v-list-item-action>
                     <v-list-item-content>
-                      <v-list-item-title class="text-wrap">Jeg skal sælge produkter i egen gårdbutik.</v-list-item-title>
+                      <v-list-item-title class="text-wrap">Jeg skal sælge fødevarer i egen gårdbutik. </v-list-item-title>
+                      <v-list-item-subtitle class="text-wrap">Fx Æg, ost, olie og kød.</v-list-item-subtitle>
                     </v-list-item-content>
                   </v-list-item>
 
@@ -398,7 +436,8 @@
                       <v-checkbox v-model="activity_egenavl"></v-checkbox>
                     </v-list-item-action>
                     <v-list-item-content>
-                      <v-list-item-title class="text-wrap">Jeg skal sælge fødevarer jeg selv har avlet, sanket eller fisket. Fx bær, svampe, honning, fisk eller æg.</v-list-item-title>
+                      <v-list-item-title class="text-wrap">Jeg skal sælge fødevarer jeg selv har avlet, sanket eller fisket.</v-list-item-title>
+                      <v-list-item-subtitle class="text-wrap"> Fx Vildt, bær, svampe, honning, fisk eller æg. </v-list-item-subtitle>
                     </v-list-item-content>
                   </v-list-item>
 
@@ -408,6 +447,7 @@
                     </v-list-item-action>
                     <v-list-item-content>
                       <v-list-item-title class="text-wrap">Jeg skal sælge fødevarer via internettet.</v-list-item-title>
+                      <v-list-item-subtitle class="text-wrap">Fx via hjemmeside, Facebook, Instagram m.v.</v-list-item-subtitle>
                     </v-list-item-content>
                   </v-list-item>
 
@@ -416,7 +456,8 @@
                       <v-checkbox v-model="activity_faerdigpakket"></v-checkbox>
                     </v-list-item-action>
                     <v-list-item-content>
-                      <v-list-item-title class="text-wrap">Jeg skal sælge færdigpakkede fødevarer som ex. slik og is.</v-list-item-title>
+                      <v-list-item-title class="text-wrap">Jeg skal sælge færdigpakkede fødevarer.</v-list-item-title>
+                      <v-list-item-subtitle class="text-wrap">Fx slik, is, pålægspakker, mælk mv. </v-list-item-subtitle>
                     </v-list-item-content>
                   </v-list-item>
 
@@ -426,7 +467,8 @@
                       <v-checkbox v-model="activity_emballage"></v-checkbox>
                     </v-list-item-action>
                     <v-list-item-content>
-                      <v-list-item-title class="text-wrap">Jeg skal sælge emballage, keramik eller andet som skal i kontakt med fødevarer</v-list-item-title>
+                      <v-list-item-title class="text-wrap">Jeg skal sælge emballage, keramik eller andet, som skal i kontakt med fødevarer.</v-list-item-title>
+                      <v-list-item-subtitle class="text-wrap">Fx pizzabakker, madfolie, fryseposer og opbevaringsbokse. </v-list-item-subtitle>
                     </v-list-item-content>
                   </v-list-item>
 
@@ -435,7 +477,8 @@
                       <v-checkbox v-model="activity_bagvaerk"></v-checkbox>
                     </v-list-item-action>
                     <v-list-item-content>
-                      <v-list-item-title class="text-wrap">Jeg skal bage og lave kager.</v-list-item-title>
+                      <v-list-item-title class="text-wrap">Jeg skal bage og sælge brød og kager.</v-list-item-title>
+                      <v-list-item-subtitle class="text-wrap">Fx bagerforretning, brødudsalg og bake-off produktion. </v-list-item-subtitle>
                     </v-list-item-content>
                   </v-list-item>
 
@@ -491,6 +534,7 @@
                     </v-list-item-action>
                     <v-list-item-content>
                       <v-list-item-title class="text-wrap">Jeg skal transportere fødevarer.</v-list-item-title>
+                      <v-list-item-subtitle class="text-wrap">Fx alt fra korn, slagtekroppe, slik og øl. </v-list-item-subtitle>
                     </v-list-item-content>
                   </v-list-item>
 
@@ -500,6 +544,17 @@
                     </v-list-item-action>
                     <v-list-item-content>
                       <v-list-item-title class="text-wrap">Jeg skal importere fødevarer og/eller drikkevarer.</v-list-item-title>
+                      <v-list-item-subtitle class="text-wrap">Fx frugt, grønt, slik, nødder, ost, vin. </v-list-item-subtitle>
+                    </v-list-item-content>
+                  </v-list-item>
+
+                  <v-list-item >
+                    <v-list-item-action>
+                      <v-checkbox v-model="activity_kosttilskud"></v-checkbox>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                      <v-list-item-title class="text-wrap">Jeg skal importere, producere og/eller sælge kosttilskud.</v-list-item-title>
+                      <v-list-item-subtitle class="text-wrap">Fx vitaminpiller, fiskeolie eller proteinpulver, proteinbarer. </v-list-item-subtitle>
                     </v-list-item-content>
                   </v-list-item>
 
@@ -508,7 +563,8 @@
                       <v-checkbox v-model="activity_foodtruck"></v-checkbox>
                     </v-list-item-action>
                     <v-list-item-content>
-                      <v-list-item-title class="text-wrap">Jeg skal tilberede mad fra en mobil vogn. Fx. Foodtruck, pølsevogn og kaffevogn.</v-list-item-title>
+                      <v-list-item-title class="text-wrap">Jeg skal tilberede mad og drikke fra en mobil vogn. </v-list-item-title>
+                      <v-list-item-subtitle class="text-wrap">Fx. Foodtruck, pølsevogn og kaffevogn. </v-list-item-subtitle>
                     </v-list-item-content>
                   </v-list-item>
 
@@ -519,24 +575,29 @@
                     </v-list-item-action>
                     <v-list-item-content>
                       <v-list-item-title class="text-wrap">Jeg skal selv producere, pakke og/eller ompakke fødevarer.</v-list-item-title>
+                      <v-list-item-subtitle class="text-wrap">Fx. måltidskasser, slagterivarer, delikatesse, mosteri, mejeri, bryggeri. </v-list-item-subtitle>
                     </v-list-item-content>
                   </v-list-item>
 
-                   <v-list-item >
-                    <v-list-item-action>
-                      <v-checkbox v-model="activity_kosttilskud"></v-checkbox>
-                    </v-list-item-action>
-                    <v-list-item-content>
-                      <v-list-item-title class="text-wrap">Jeg skal importere, producere og/eller sælge kosttilskud.</v-list-item-title>
-                    </v-list-item-content>
-                  </v-list-item>
+                   
 
                   <v-list-item >
                     <v-list-item-action>
                       <v-checkbox v-model="activity_nytprodukt"></v-checkbox>
                     </v-list-item-action>
                     <v-list-item-content>
-                      <v-list-item-title class="text-wrap">Jeg skal producere eller markedsføre et produkt som ikke allerede er på markedet.</v-list-item-title>
+                      <v-list-item-title class="text-wrap">Jeg skal producere eller markedsføre en fødevare, som ikke allerede er på markedet.(Novel food)</v-list-item-title>
+                      <v-list-item-subtitle class="text-wrap">Fx insekter og planter </v-list-item-subtitle>
+                    </v-list-item-content>
+                  </v-list-item>
+
+                  <v-list-item >
+                    <v-list-item-action>
+                      <v-checkbox v-model="activity_privat"></v-checkbox>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                      <v-list-item-title class="text-wrap">Jeg skal tilberede mad og drikke fra mit private køkken.</v-list-item-title>
+                      <v-list-item-subtitle class="text-wrap">Fx kager og mad til selskaber. </v-list-item-subtitle>
                     </v-list-item-content>
                   </v-list-item>
 
@@ -589,7 +650,8 @@
                       <v-checkbox v-model="activity_kolfrost"></v-checkbox>
                     </v-list-item-action>
                     <v-list-item-content>
-                      <v-list-item-title class="text-wrap">Jeg skal sælge varer der skal på køl eller frost som ex mælk og pålæg.</v-list-item-title>
+                      <v-list-item-title class="text-wrap">Jeg skal sælge varer der skal på køl eller frost.</v-list-item-title>
+                      <v-list-item-subtitle class="text-wrap">Fx mælk og pålæg. </v-list-item-subtitle>
                     </v-list-item-content>
                   </v-list-item>
 
@@ -599,6 +661,7 @@
                     </v-list-item-action>
                     <v-list-item-content>
                       <v-list-item-title class="text-wrap">Jeg skal behandle og/eller tilberede fisk, fiskevarer og skalddyr.</v-list-item-title>
+                      <v-list-item-subtitle class="text-wrap">Fx fiskehandler, sushirestaurant, delikatesse. </v-list-item-subtitle>
                     </v-list-item-content>
                   </v-list-item>
 
@@ -608,6 +671,7 @@
                     </v-list-item-action>
                     <v-list-item-content>
                       <v-list-item-title class="text-wrap">Jeg skal behandle og/eller tilberede kød, kødprodukter og kødpålæg.</v-list-item-title>
+                      <v-list-item-subtitle class="text-wrap"> </v-list-item-subtitle>
                     </v-list-item-content>
                   </v-list-item>
 
@@ -618,6 +682,7 @@
                     </v-list-item-action>
                     <v-list-item-content>
                       <v-list-item-title class="text-wrap">Jeg skal sælge vin, spiritus eller andre drikke med alkohol.</v-list-item-title>
+                      <v-list-item-subtitle class="text-wrap"> </v-list-item-subtitle>
                     </v-list-item-content>
                   </v-list-item>
                     
@@ -627,6 +692,7 @@
                     </v-list-item-action>
                     <v-list-item-content>
                       <v-list-item-title class="text-wrap">Jeg skal sælge økologiske fødevarer.</v-list-item-title>
+                      <v-list-item-subtitle class="text-wrap">Fx mælk, pålæg, gulerødder. </v-list-item-subtitle>
                     </v-list-item-content>
                   </v-list-item>
                     
@@ -636,6 +702,7 @@
                     </v-list-item-action>
                     <v-list-item-content>
                       <v-list-item-title class="text-wrap">Jeg skal opvarme, nedkøle eller varmholde fødevarer.</v-list-item-title>
+                      <v-list-item-subtitle class="text-wrap">Fx supper, gryderetter, fiskefrikadeller, hakkebøffer. </v-list-item-subtitle>
                     </v-list-item-content>
                   </v-list-item>
                     
@@ -664,7 +731,7 @@
                  class="mb-12 py-12"
                  flat
                  color="white"
-                 v-if="( bagatel.includes('1') || bagatel.includes('2') || bagatel.includes('3') || bagatel.includes('4') )"
+                 v-if="( bagatel.includes('1') || bagatel.includes('2') || bagatel.includes('3') || bagatel.includes('4') || bagatel.includes('5') || bagatel.includes('6') || bagatel.includes('7') )"
                 >
                   <div class="text-center relative">
                     <img src="box.svg" class="resultimg">
@@ -685,7 +752,7 @@
                     <v-row class="resultrow">
                       <v-col cols="6">
                         <v-card-subtitle class="pa-0">
-                        Du skal ikke registrere din virksomhed, da dine aktiviteter er under det Fødevarestyrelsen kalder bagatelgrænsen og er betegnet som en hobbyvirksomhed. Du skal dog stadig sikre at den mad du laver eller sælger ikke gør forbrugerne syge.</v-card-subtitle>
+                        Du skal ikke registrere din virksomhed, da du har begrænsede aktiviteter, og er under det Fødevarestyrelsen kalder bagatelgrænsen.<br> Du skal dog stadig sikre at den mad du laver eller sælger ikke gør folk syge.</v-card-subtitle>
                       </v-col>
                       <v-col cols="6">
                         <p>
@@ -705,30 +772,85 @@
                     </v-row>
                   </v-card-text>
 
-                   <v-card-actions class="justify-center flex-column">
+                   <v-card-actions class="justify-center flex-column resultrow">
                     <v-btn
                       color="primary"
-                      href="#"
+                      href="https://www.foedevarestyrelsen.dk/Foedevarer/Hygiejne_og_indretning/Sider/Forside.aspx"
                       elevation="2"
                       tile
                       x-large
                     >
-                      Link
+                      Generelt om hygiejneregler
                     </v-btn>
-                    <v-spacer class="py-2"></v-spacer>
-                    <v-row clas="my-10 pa-10">
+
+                    <v-row clas="mt-12 pa-10">
+       
                       <v-btn
                         color="white"
-                        href="#"
+                        href="https://www.foedevarestyrelsen.dk/Leksikon/Sider/Privat-madlavning-og-f%C3%B8devarevirksomhed-under-bagatelgr%C3%A6nsen.aspx"
                         elevation="2"
                         class="col-xs-12 mt-4 col-md-6"
                         tile
-                        block
                         large
                       >
-                        link
+                        Privat madlavning under bagatelgrænsen
                       </v-btn>
-                    </v-row>
+
+                        <v-btn
+                          color="white"
+                          href="https://https://www.foedevarestyrelsen.dk/Selvbetjening/Vejledninger/Autorisationsvejledning/Sider/3_3_Hvilke_regler_gaelder_for_foedevarevirksomheder_under_bagatelgraensen.aspx"
+                          elevation="2"
+                          class="col-xs-12 mt-4 col-md-6"
+                          tile
+                          large
+                        >
+                          Hygiejneregler for virksomheder under bagatelgrænsen
+                        </v-btn>
+
+                        <v-btn
+                          color="white"
+                          href="https://www.foedevarestyrelsen.dk/Leksikon/Sider/Salg-af-honning-ved-stalddoer-og-levering-til-butikker-og-restauranter.aspx"
+                          elevation="2"
+                          class="col-xs-12 mt-4 col-md-6"
+                          tile
+                          large
+                        >
+                          Salg af honning ved stalddør og til butikker
+                        </v-btn>
+  
+                        <v-btn
+                          color="white"
+                          href="https://www.foedevarestyrelsen.dk/Leksikon/Sider/Salg-af-frugt-og-groent-kartofler-baer-svampe-tang-og-andre-alger-ved-stalddoer-mv.aspx"
+                          elevation="2"
+                          class="col-xs-12 mt-4 col-md-6"
+                          tile
+                          large
+                        >
+                          Salg af frugt og grønt ved stalddør
+                        </v-btn>
+      
+                        <v-btn
+                          color="white"
+                          href="https://https://www.foedevarestyrelsen.dk/Leksikon/Sider/Markedsboder.aspx"
+                          elevation="2"
+                          class="col-xs-12 mt-4 col-md-6"
+                          tile
+                          large
+                        >
+                          Salg af mad ved boder på festivaller og markeder
+                        </v-btn>
+   
+                        <v-btn
+                          color="white"
+                          href="https://https://www.foedevarestyrelsen.dk/Leksikon/Sider/Sporbarhed-på-fødevarer.aspx"
+                          elevation="2"
+                          class="col-xs-12 mt-4 col-md-6"
+                          tile
+                          large
+                        >
+                          Læs mere om sporbarhed
+                        </v-btn>
+                      </v-row>
 
                   </v-card-actions>
 
@@ -793,7 +915,7 @@
                       </v-col>
                       <v-col cols="6">
                         <p><strong>Som registret fødevarevirksomhed skal du betale et gebyr hvert år.</strong></p>
-                        <p>Det koster 549,- kroner i årligt gebyr at være detailvirksomhed.</p>
+                        <p>Det koster 557,- kroner i årlig afgift at være detailvirksomhed.</p>
                         <p>Virksomheden kan blive opkrævet gebyr for et ekstra kontrolbesøg, hvis reglerne i virksomheden bliver overtrådt.</p>
                         
                       </v-col>
@@ -807,7 +929,7 @@
                       </v-col>
                       <v-col cols="6">
                         <p><strong>Som registret fødevarevirksomhed skal du betale et gebyr hvert år.</strong></p>
-                        <p>Det koster 1.249,- kroner i årligt gebyr at være engrosvirksomhed.</p>
+                        <p>Det koster 1.249,- kroner i årlig afgift at være engrosvirksomhed.</p>
                         <p>Virksomheden kan blive opkrævet gebyr for et ekstra kontrolbesøg, hvis reglerne i virksomheden bliver overtrådt.</p>
                       </v-col>
                     </v-row>
@@ -820,7 +942,7 @@
                       </v-col>
                       <v-col cols="6">
                         <p><strong>Som registret fødevarevirksomhed skal du betale et gebyr hvert år.</strong></p>
-                        <p>Det koster 1.249,- kroner i årligt gebyr at være både detail- og engrosvirksomhed.</p>
+                        <p>Det koster 1.249,- kroner i årlig afgift at være både detail- og engrosvirksomhed.</p>
                         <p>Virksomheden kan blive opkrævet gebyr for et ekstra kontrolbesøg, hvis reglerne i virksomheden bliver overtrådt.</p>
                       </v-col>
                     </v-row>
@@ -844,6 +966,7 @@
                       activity_opvarm_nedkol ||
                       activity_kolfrost ||
                       activity_foodtruck ||
+                      activity_privat ||
                       activity_selvproducere
                     " class="resultrow">
                       <v-col cols="6">
@@ -852,26 +975,21 @@
                         </v-card-subtitle>
                       </v-col>
                       <v-col cols="6">
-                        <p>Du skal at sikre, at dine fødevarer er i orden, så folk ikke bliver syge. Du skal derfor lave en skriftlig
-                          risikoanalyse og et egenkontrolprogram. Risikoanalysen er fundamentet for din egenkontrol.</p>
+                        <p>Du skal at sikre, at dine fødevarer er i orden, så folk ikke bliver syge. Du skal derfor danne dig et overblik over, hvor du har brug for styring. Det gør du ved at lave en skriftlig risikoanalyse inden du starter din fødevarevirksomhed.
+ </p>
 
-                        <p>Risikoanalysen giver dig et overblik over hvilke aktiviteter i din virksomhed, der kan gå galt og gøre folk syge
-                          og også hvad din virksomhed skal gøre for at forebygge at det ikke sker.</p>
+                        <p>Risikoanalysen giver dig et overblik over hvilke aktiviteter i din virksomhed, der kan gøre folk syge og også hvad du skal gøre for at forebygge at det ikke sker.</p>
 
-                        <p><strong>En risikoanalyse er en gennemgang
-                          af sammenhængen mellem:</strong>
+                        <p><strong>En risikoanalyse er en gennemgang af sammenhængen mellem:</strong>
                           <ul>
                             <li>Virksomhedens fødevareaktiviteter</li>
-                            <li>Risici forbundet med aktiviteterne – dvs. hvor det kan gå galt, så fødevarerne kan blive farlige</li>
-                            <li>Styringsmuligheder – dvs. en beskrivelse af, hvad din virksomhed kan gøre for at forebygge at noget
-                            går galt, så fødevarerne bliver farlige.</li>
+                            <li>Risici forbundet med aktiviteterne – dvs. hvor det kan gå galt, så fødevarerne kan gøre folk syge eller de kan blive farlige</li>
+                            <li>Styringsmuligheder – dvs. en beskrivelse af, hvad din virksomhed kan gøre for at forebygge at noget går galt, så fødevarerne bliver farlige.</li>
                           </ul>
                         </p>
 
                         <p>
-                          Derudover skal du lave et skriftligt egenkontrolprogram. Her skal du beskrive, hvordan du vil føre kontrol
-                          med de aktiviteter i din virksomhed, der har stor betydning for fødevaresikkerheden. Din risikoanalyse giver
-                          dig overblikket over de kritiske kontrolpunkter, som kræver skriftlig egenkontrolprogram.</p>
+                          Dine egenkontrolprocedurer tager udgangspunkt i gode arbejdsgange og styring af eventuelle kritiske kontrolpunkter. Hvis din risikoanalyse viser, at virksomheden har kritiske kontrolpunkter, skal din behandling af dem med i dit skriftlige egenkontrolprogram. Derimod skal gode arbejdsgange ikke nødvendigvis skrives ned, men du og dine medarbejdere skal kunne redegøre for dem.</p>
 
                           <v-btn v-if="activity_opvarm_nedkol" href="https://www.foedevarestyrelsen.dk/SiteCollectionDocuments/Kontrolstyring/Egenkontrol/Egenkontrol_eksempel.pdf" depressed target="_blank" class="mb-1 d-flex">
                             Skema til skriftlig egenkontrol
@@ -946,7 +1064,7 @@
                       <v-col cols="6">
 
                         <div>
-                          <p v-if="activity_oekologi || client_b2b || activity_alkohol">Du må ikke starte din virksomhed op uden at have modtaget en autorisation fra Fødevarestyrelsen.</p>
+                          <p v-if="activity_oekologi || client_b2b || activity_alkohol">Du må ikke starte din virksomhed op uden at være blevet autoriseret af Fødevarestyrelsen.</p>
 
                           <p v-else>
                             Du må gå i gang med fra den dag du har registreret din virksomhed fra.
@@ -954,11 +1072,12 @@
 
                         </div>
 
-                        <p v-if="activity_alkohol">Da du skal sælge alkohol, skal du huske at have en alkoholbevilling inden du må sælge alkohol. Du kan søge om en alkoholbækbevilling og tilladelse på politiets hjemmeside.</p>
+                        <p v-if="activity_alkohol">Alkohol som øl og vin er også fødevarer og skal registreres på samme vis som andre fødevarer. Hvis du også skal sælge alkohol skal du søge om alkoholbevilling i din kommune inden du starter din virksomhed. Det kan forsinke åbningen hvis du ikke har styr på det inden opstart.</p>
     
 
-                        <p v-if="activity_oekologi"><strong>Når du arbejder med økologi må du ikke starte din virksomhed op uden at modtaget en økologirapport fra Fødevarestyrelsen.</strong> Rapporten bliver først lavet, når Fødevarestyrelsen har fået dit egenkontrolprogram for de økologiske aktiviteter. 
-                        Den får du tilsendt med din kvittering på registering. Du skal sende dit egenkontrolprogram sammen med formularen for XX. Hent formular?!
+                        <p v-if="activity_oekologi"><strong>Når du arbejder med økologi må du ikke starte din virksomhed op uden at have modtaget en økologirapport fra Fødevarestyrelsen.</strong>
+Rapporten bliver først lavet, når Fødevarestyrelsen har fået dit egenkontrolprogram for de økologiske aktiviteter. 
+Når du har udfyldt registreringsblanketten får du en kvittering på mail, og i mailen finder du fødevarereglerne som du også skal have styr på inden opstart. 
                         </p>
 
                         <p>Når du har udfyldt registreringsblanketten får du en kvittering på mail, og i mailen finder du fødevarereglerne som du også skal have styr på inden opstart.</p> 
@@ -984,6 +1103,10 @@
                         <p>Vi har samlet de dele fra hygiejnevejledningen der kan hjælpe dig til at leve op til kravene. 
                         </p>
 
+                        <v-btn href="https://www.foedevarestyrelsen.dk/Foedevarer/Hygiejne_og_indretning/Sider/Forside.aspx " color="white" elevation="2" tile block small target="_blank" class="mb-1 d-flex">
+                          Generelt om reglerne for hygiejne og indretning
+                        </v-btn>
+
                         <v-btn v-if="activity_restaurant" href="https://www.foedevarestyrelsen.dk/Selvbetjening/Vejledninger/Hygiejnevejledning/Sider/result.aspx?key=74774d1a-c0a2-4ead-a7e0-d5590b5aa721" color="white" elevation="2" tile block small target="_blank" class="mb-1 d-flex">
                           Hygiejneregler for restaurant, take- away mm.
                         </v-btn>
@@ -997,7 +1120,7 @@
                         </v-btn>
 
                         <v-btn v-if="activity_foodtruck" href="https://www.foedevarestyrelsen.dk/Selvbetjening/Vejledninger/Hygiejnevejledning/Sider/15--Mobile-foedevarevirksomheder-og-midlertidige-lokaler.aspx?key=9e785a3c-d20a-447c-852a-053926724540" color="white" elevation="2" tile block small target="_blank" class="mb-1 d-flex">
-                            Regler for mobile fødevarevirksomheder
+                            Alt om mobile fødevarevirksomheder
                         </v-btn>
 
                         <v-btn v-if="activity_gaardbutik" href="https://www.foedevarestyrelsen.dk/Selvbetjening/Vejledninger/Hygiejnevejledning/Sider/result.aspx?key=d42089f2-f6d5-4aa7-acea-73b72e4f9ce3" color="white" elevation="2" tile block small target="_blank" class="mb-1 d-flex">
@@ -1005,7 +1128,23 @@
                         </v-btn>
 
                         <v-btn v-if="activity_egenavl" href="https://www.foedevarestyrelsen.dk/Selvbetjening/Vejledninger/Hygiejnevejledning/Sider/result.aspx?key=8b360723-b792-4ffb-8585-0612c1884b9c" color="white" elevation="2" tile block small target="_blank" class="mb-1 d-flex">
-                            Regler for stalddørssalg og egen produktion
+                            Fødevarer der må sælges ved stalddørssalg
+                        </v-btn>
+
+                        <v-btn v-if="activity_bagvaerk" href="https://www.foedevarestyrelsen.dk/Selvbetjening/Vejledninger/Hygiejnevejledning/Sider/result.aspx?key=4d56bc6f-86bd-4c7d-8fb5-b549158e2e14" color="white" elevation="2" tile block small target="_blank" class="mb-1 d-flex">
+                             Regler for bager/bake-off produktion
+                        </v-btn>
+
+                        <v-btn v-if="activity_fisk" href="https://www.foedevarestyrelsen.dk/Leksikon/Sider/Fisk-og-fiskevarer.aspx " color="white" elevation="2" tile block small target="_blank" class="mb-1 d-flex">
+                             Læs mere om fisk og fiskevarer
+                        </v-btn>
+
+                        <v-btn v-if="activity_fisk" href="https://www.foedevarestyrelsen.dk/Selvbetjening/Vejledninger/Hygiejnevejledning/Sider/62--Indretning-og-drift-af-fiskevirksomheder-i-land.aspx?key=b292a114-5e60-4db9-9dd1-17a70da43f82" color="white" elevation="2" tile block small target="_blank" class="mb-1 d-flex">
+                             Læs om reglerne for drift af fiskevirksomheder
+                        </v-btn>
+
+                        <v-btn v-if="activity_fisk" href="https://www.foedevarestyrelsen.dk/Selvbetjening/Vejledninger/Hygiejnevejledning/Sider/72--Muslinger-m-m.aspx?key=c5bf4524-02fd-455c-8b22-3fa2583dda29 " color="white" elevation="2" tile block small target="_blank" class="mb-1 d-flex">
+                             Læs mere om reglerne håndtering af muslinger og skaldyr
                         </v-btn>
 
                         <v-btn v-if="activity_faerdigpakket" href="https://www.foedevarestyrelsen.dk/Selvbetjening/Vejledninger/Hygiejnevejledning/Sider/4-3-Opbevaring-af-f%C3%B8devarer.aspx" color="white" elevation="2" tile block small target="_blank" class="mb-1 d-flex">
@@ -1016,12 +1155,20 @@
                             Kølekrav for fødevarer
                         </v-btn>
 
-                        <v-btn v-if="activity_emballage" href="https://www.foedevarestyrelsen.dk/Selvbetjening/Vejledninger/Hygiejnevejledning/Sider/29--Indpakning-og-emballering-af-foedevarer.aspx?key=4d56bc6f-86bd-4c7d-8fb5-b549158e2e14" color="white" elevation="2" tile block small target="_blank" class="mb-1 d-flex">
+                        <v-btn v-if="activity_kolfrost" href="https://www.foedevarestyrelsen.dk/Leksikon/Sider/nedkoeling_af_foedevarer.aspx" color="white" elevation="2" tile block small target="_blank" class="mb-1 d-flex">
+                            Læs mere om nedkøling af fødevarer
+                        </v-btn>
+
+                        <v-btn v-if="activity_emballage" href="https://www.foedevarestyrelsen.dk/Foedevarer/Fodevarekontaktmaterialer/Sider/default.aspx" color="white" elevation="2" tile block small target="_blank" class="mb-1 d-flex">
                             Indpakning og emballering af fødevarer
                         </v-btn>
 
                         <v-btn v-if="activity_opvarm_nedkol" href="https://www.foedevarestyrelsen.dk/Selvbetjening/Vejledninger/Hygiejnevejledning/Sider/27--Varmebehandling-og-varmholdelse-af-foedevarer.aspx" color="white" elevation="2" tile block small target="_blank" class="mb-1 d-flex">
                             Varmebehandling og varmholdelse af fødevarer
+                        </v-btn>
+
+                        <v-btn v-if="activity_koed" href="https://www.foedevarestyrelsen.dk/Selvbetjening/Vejledninger/Hygiejnevejledning/Sider/result.aspx?key=a42d23df-1f45-457b-b2db-4e3bc4811759" color="white" elevation="2" tile block small target="_blank" class="mb-1 d-flex">
+                            Læs mere om håndtering kød
                         </v-btn>
                       
                       </v-col>
@@ -1047,6 +1194,22 @@
                           Du skal også være opmærksom på at du ikke må bruge det økologiske spisemærke uden selvstændig
                           godkendelse. Du kan først ansøge om spisemærket, når din virksomhed har været i drift i mindst tre
                           måneder.</p>
+
+                          <v-btn href="https://www.foedevarestyrelsen.dk/Foedevarer/Oekologi/Sider/Oekologi.aspx" color="white" elevation="2" tile block small target="_blank" class="mb-1 d-flex">
+                            Læs alt om økologi 
+                        </v-btn>
+
+                        <v-btn  href="https://www.foedevarestyrelsen.dk/Leksikon/Sider/Det-oekologiske-spisemaerke.aspx" color="white" elevation="2" tile block small target="_blank" class="mb-1 d-flex">
+                            Det økologiske spisemærke
+                        </v-btn>
+
+                        <v-btn href="https://lbst.dk/tvaergaaende/oekologi/jordbrugsbedrifter/" color="white" elevation="2" tile block small target="_blank" class="mb-1 d-flex">
+                            Læs mere om det røde Ø-mærke
+                        </v-btn>
+
+                        <v-btn href="https://www.foedevarestyrelsen.dk/Leksikon/Sider/Anmeldelses_og_kontrolkrav_til_oekologiske_virksomheder.aspx" color="white" elevation="2" tile block small target="_blank" class="mb-1 d-flex">
+                            Læs mere om registering af økologisk virksomhed
+                        </v-btn>
                       
                       </v-col>
                     </v-row>
@@ -1058,6 +1221,9 @@
                       </v-col>
                       <v-col cols="6">
                         <p>Nå du skal sælge alkohol skal du søge om alkoholbevilling i din kommune inden du starter din virksomhed. Det kan forsinke åbningen hvis du ikke har styr på det inden opstart.</p>
+                        <v-btn href="https://www.foedevarestyrelsen.dk/Leksikon/Sider/Salg-af-vin.aspx" color="white" elevation="2" tile block small target="_blank" class="mb-1 d-flex">
+                            Salg af vin
+                        </v-btn>
                       </v-col>
                     </v-row>
                     <v-row v-if="activity_kosttilskud" class="resultrow">
@@ -1067,18 +1233,19 @@
                         </v-card-subtitle>
                       </v-col>
                       <v-col cols="6">
-                        <p>De kosttilskud, som du ønsker at sælge, skal registreres senest samme dag som første salg.</p>
+                        <p>De kosttilskud, som du ønsker at sælge, skal anmeldes senest samme dag som første salg.</p>
 
                           <p>Hvis du har anmeldt et eller flere kosttilskud til markedsføring i Danmark, og har en årlig omsætning på over 50.000 kr., skal du betale et årligt beløb til finansiering af en styrket kontrol med kosttilskud.</p>
 
                           <p><strong>Der opkræves gebyr på 766 kr. pr. registreret kosttilskud og 9.573 kr. pr. virksomhed for virksomheder, der har anmeldte kosttilskud registret pr. 1. februar indeværende år.</strong></p>
+
+                          <v-btn href="https://www.foedevarestyrelsen.dk/Foedevarer/Kosttilskud/Sider/Kosttilskud.aspx" color="white" elevation="2" tile block small target="_blank" class="mb-1 d-flex">
+                            Læs mere om regler for kosttilskud
+                        </v-btn>
+
                       </v-col>
                     </v-row>
 
-
-
-                    
-    
                   </v-card-text>
 
                   <v-card-actions class="justify-center flex-column resultrow">
@@ -1093,18 +1260,167 @@
                     </v-btn>
                     <v-spacer class="py-2"></v-spacer>
                     <p class="mt-2">Husk også at registrere din virksomhed på Virk.dk.</p>
-                    <v-row clas="mt-10 pa-10">
+
+
+                    <v-row clas="mt-12 pa-10">
                       <v-btn
+                        v-if="activity_kosttilskud"
                         color="white"
-                        href="https://saas.resultmaker.com/virkfrontend/fvst.aspx?id=autorisation_registrering_foedevarevirksomhed"
+                        href="https://www.foedevarestyrelsen.dk/Selvbetjening/Guides/Sider/Hvad-skal-jeg-vaere-opmaerksom-paa-naar-jeg-skal-markedsfoere-kosttilskud.aspx?Indgang=F%C3%B8devarer&Indgangsemne=Kosttilskud&"
                         elevation="2"
                         class="col-xs-12 mt-4 col-md-6"
                         tile
-                        block
                         large
                       >
-                        link
+                        Guide til markedsføring om kosttilskud
                       </v-btn>
+
+                      <v-btn
+                        v-if="activity_import || activity_alkohol"
+                        color="white"
+                        href="https://www.foedevarestyrelsen.dk/Foedevarer/Import_af_foedevarer/Sider/forside.aspx"
+                        elevation="2"
+                        class="col-xs-12 mt-4 col-md-6"
+                        tile
+                        large
+                      >
+                        Læs mere om import og samhandel
+                      </v-btn>
+
+                      <v-btn
+                        v-if="activity_nytprodukt"
+                        color="white"
+                        href="https://www.foedevarestyrelsen.dk/Leksikon/Sider/Nye-f%C3%B8devarer-og-f%C3%B8devareingredienser.aspx"
+                        elevation="2"
+                        class="col-xs-12 mt-4 col-md-6"
+                        tile
+                        large
+                      >
+                        Læs mere om reglerne for nye produkttyper
+                      </v-btn>
+
+                      <v-btn
+                        v-if="activity_nytprodukt"
+                        color="white"
+                        href="https://www.foedevarestyrelsen.dk/Leksikon/Sider/Risikovurdering-og-godkendelse-af-foedevarer.aspx"
+                        elevation="2"
+                        class="col-xs-12 mt-4 col-md-6"
+                        tile
+                        large
+                      >
+                        Risikovurdering og godkendelse af fødevarer
+                      </v-btn>
+
+                      <v-btn
+                        v-if="activity_foodtruck"
+                        color="white"
+                        href="https://www.foedevarestyrelsen.dk/Selvbetjening/Guides/Sider/Salg-af-mad-fra-cykel.aspx"
+                        elevation="2"
+                        class="col-xs-12 mt-4 col-md-6"
+                        tile
+                        large
+                      >
+                        Salg af mad fra cykel eller mindre food truck
+                      </v-btn>
+
+                      <v-btn
+                        v-if="activity_egenavl"
+                        color="white"
+                        href="https://www.foedevarestyrelsen.dk/Leksikon/Sider/Stalddoerssalg-og-levering-til-lokale-butikker-og-restauranter.aspx"
+                        elevation="2"
+                        class="col-xs-12 mt-4 col-md-6"
+                        tile
+                        large
+                      >
+                        Læs mere om stalddørssalg
+                      </v-btn>
+
+                      <v-btn
+                        v-if="activity_egenavl"
+                        color="white"
+                        href="https://www.foedevarestyrelsen.dk/Selvbetjening/Guides/Sider/Saadan_saelger_du_dine_hoenseaeg.aspx"
+                        elevation="2"
+                        class="col-xs-12 mt-4 col-md-6"
+                        tile
+                        large
+                      >
+                        Sådan sælger du hønseæg
+                      </v-btn>
+
+                      <v-btn
+                        v-if="activity_egenavl"
+                        color="white"
+                        href="https://www.foedevarestyrelsen.dk/Leksikon/Sider/Salg-af-slagtede-h%C3%B8ns,-kyllinger,-%C3%A6nder,-g%C3%A6s-eller-kalkuner-fra-staldd%C3%B8r,-g%C3%A5rdbutik-m.m.aspx"
+                        elevation="2"
+                        class="col-xs-12 mt-4 col-md-6"
+                        tile
+                        large
+                      >
+                        Salg af slagtede fjerkræ ved stalddør
+                      </v-btn>
+
+                      <v-btn
+                        v-if="activity_emballage"
+                        color="white"
+                        href="https://www.foedevarestyrelsen.dk/Foedevarer/Fodevarekontaktmaterialer/Sider/default.aspx"
+                        elevation="2"
+                        class="col-xs-12 mt-4 col-md-6"
+                        tile
+                        large
+                      >
+                        Læs mere om fødevarekontaktmateriale
+                      </v-btn>
+
+                      <v-btn
+                        v-if="activity_emballage"
+                        color="white"
+                        href="https://www.foedevarestyrelsen.dk/Foedevarer/Maerkning_og_markedsforing_af_fodevarer/Sider/forside.aspx"
+                        elevation="2"
+                        class="col-xs-12 mt-4 col-md-6"
+                        tile
+                        large
+                      >
+                        Mærkning af fødevarer
+                      </v-btn>
+
+                      <v-btn
+                        v-if="activity_emballage || activity_selvproducere"
+                        color="white"
+                        href="https://www.foedevarestyrelsen.dk/Selvbetjening/Vejledninger/Maerkningsvejledning/Sider/default.aspx"
+                        elevation="2"
+                        class="col-xs-12 mt-4 col-md-6"
+                        tile
+                        large
+                      >
+                        Læs mere om reglerne for mærkning
+                      </v-btn>
+
+                      <v-btn
+                        v-if="activity_fisk"
+                        color="white"
+                        href="https://www.foedevarestyrelsen.dk/Selvbetjening/Guides/Sider/Hvilke-regler-gaelder-for-maerkning-af-fiskevarer-og-akvakulturprodukter.aspx"
+                        elevation="2"
+                        class="col-xs-12 mt-4 col-md-6"
+                        tile
+                        large
+                      >
+                        Læs om mærkning af fisk
+                      </v-btn>
+
+                      <v-btn
+                        v-if="activity_koed"
+                        color="white"
+                        href="https://www.foedevarestyrelsen.dk/Selvbetjening/Guides/Sider/Hvilke-regler-gaelder-for-maerkning-af-koed-og-koedvarer.aspx "
+                        elevation="2"
+                        class="col-xs-12 mt-4 col-md-6"
+                        tile
+                        large
+                      >
+                        Læs om mærkning af kød
+                      </v-btn>
+
+
+
                     </v-row>
 
                   </v-card-actions>
@@ -1173,6 +1489,7 @@
           <p>activity_internet : {{ activity_internet }}</p>
           <p>activity_alkohol : {{ activity_alkohol }}</p>
           <p>activity_oekologi : {{ activity_oekologi }}</p>
+          <p>activity_privat : {{ activity_privat }}</p>
           <p>activity_kosttilskud : {{ activity_kosttilskud }}</p>
           <p>activity_fisk : {{ activity_fisk }}</p>
           <p>activity_koed : {{ activity_koed }}</p>
@@ -1217,6 +1534,7 @@
           activity_faerdigpakket: false,
           activity_emballage: false,
           activity_egenavl: false,
+          activity_privat: false,
           activity_nytprodukt: false,
           activity_gaardbutik: false,
           activity_internet: false,
