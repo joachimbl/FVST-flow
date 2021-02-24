@@ -109,75 +109,41 @@
     }
 
     .v-application .primary {
-    background-color: #00587A !important;
-    border-color: #00587A !important;
-}
+      background-color: #00587A !important;
+      border-color: #00587A !important;
+    }
 
-  .v-stepper__step {
-    padding-right: 20px;
-    padding-left: 0;
-  }
-
-
-
+    .v-stepper__step {
+      padding-right: 20px;
+      padding-left: 0;
+    }
   </style>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
 </head>
+
 <body>
   <div id="app">
   <v-app id="inspire">
-    <!--
-    <div v-if="e1 != 6" class="pt-12 pb-8 primary">
-        <h1>Kom godt i gang med din fødevarevirksomhed</h1>
-        <h2>Følg guiden og få vejledning og materiale<br> der passer til din kommende fødevarevirksomhed.</h2>
-      </div>
-
-      <div v-if="e1 == 6" class="pt-12 pb-8 primary">
-        <h1>Dit resultat</h1>
-      </div> -->
     <v-container>
-      
-
-
       <v-row
         class="mb-6 flow px-5"
         justify="center"
         no-gutters
       >
-      
-
-
         <v-col md="12"> 
           <v-stepper v-model="e1" flat>
             <v-stepper-header flat class="px-10">
               <v-btn  text @click="e1 = 1" v-if="e1 == 6" class="ma-4">Forfra</v-btn>
               <v-spacer></v-spacer>
               <v-stepper-step :complete="e1 > 1" step="1"></v-stepper-step>
-
-              
-
               <v-stepper-step :complete="e1 > 2" step="2"></v-stepper-step>
-
-              
-              
               <v-stepper-step :complete="e1 > 3" step="3"></v-stepper-step>
-
-              
-              
               <v-stepper-step :complete="e1 > 4" step="4"></v-stepper-step>
-
-              
-
               <v-stepper-step :complete="e1 > 5" step="5"></v-stepper-step>
-
-              
-
               <v-stepper-step step="6"></v-stepper-step>
             </v-stepper-header>
 
             <v-stepper-items>
               <v-stepper-content step="1">
-
                 <v-card
                   class="mb-12 px-10"
                   flat
@@ -226,7 +192,6 @@
                  </v-card-actions>
                   
                 </v-card>
-                
               </v-stepper-content>
 
               <v-stepper-content step="2">
@@ -357,10 +322,7 @@
                       </v-col>
                       </v-row>
                       
-                    </v-list-item-group>
-
-
-                    
+                    </v-list-item-group>  
                  </v-card-text>
                    
                  <v-card-actions>
@@ -387,9 +349,6 @@
                     >
                       Næste
                     </v-btn>
-           
-                   
-                    
                  </v-card-actions>
                   
                 </v-card>
@@ -489,9 +448,7 @@
                     <v-list-item-content>
                       <v-list-item-title class="text-wrap">Ingen af ovenstående</v-list-item-title>
                     </v-list-item-content>
-                  </v-list-item>
-                    
-                    
+                  </v-list-item> 
                  </v-card-text>
                    
                  <v-card-actions>
@@ -525,8 +482,6 @@
                     Vælg gerne flere
                   </v-card-subtitle>
                   <v-card-text>
-
-              
 
                   <v-list-item >
                     <v-list-item-action>
@@ -568,7 +523,6 @@
                     </v-list-item-content>
                   </v-list-item>
 
-
                    <v-list-item >
                     <v-list-item-action>
                       <v-checkbox v-model="activity_selvproducere"></v-checkbox>
@@ -578,8 +532,6 @@
                       <v-list-item-subtitle class="text-wrap">Fx. måltidskasser, slagterivarer, delikatesse, mosteri, mejeri, bryggeri. </v-list-item-subtitle>
                     </v-list-item-content>
                   </v-list-item>
-
-                   
 
                   <v-list-item >
                     <v-list-item-action>
@@ -610,7 +562,6 @@
                     </v-list-item-content>
                   </v-list-item>
 
-    
                  </v-card-text>
                    
                  <v-card-actions>
@@ -854,32 +805,26 @@
 
                   </v-card-actions>
 
-
                <v-row cols="12" class="d-flex flex-row justify-center align-center pt-10">
- 
                   <v-spacer></v-spacer>
                   <div class="primary--text"><strong>Modtag resultatet på mail</strong></div>
 
-                      <v-text-field
-                        hide-details
-                        single-line
-                        label="E-mail adresse"
-                        class="mx-3"
-                        filled
-                        flat
-                        dense
-                      >
-                      </v-text-field>
+                  <v-text-field
+                    hide-details
+                    single-line
+                    label="E-mail adresse"
+                    class="mx-3"
+                    filled
+                    flat
+                    dense
+                  >
+                  </v-text-field>
 
-
-                      <v-btn color="primary"
-                      >Send
-                        <v-icon class="ml-2">mdi-send</v-icon>
-                      </v-btn>
-                      <v-spacer></v-spacer>
-                  
+                  <v-btn color="primary">Send
+                    <v-icon class="ml-2">mdi-send</v-icon>
+                  </v-btn>
+                  <v-spacer></v-spacer>
                 </v-row>
-
                   
                 </v-card>
                 <v-card
@@ -888,14 +833,14 @@
                  color="white"
                  v-else
                 >
-                <div class="text-center relative">
-                  <img src="box.svg" class="resultimg">
-                </div>
+                  <div class="text-center relative">
+                    <img src="box.svg" class="resultimg">
+                  </div>
                  
                  <div class="text-center relative">
                   <v-card-title class="font-weight-bold justify-center">
                    Dit resultat
-                 </v-card-title>
+                  </v-card-title>
                    <v-card-subtitle class="justify-center">
                      Her har vi samlet information og materialer der passer til dine svar.
                    </v-card-subtitle>
@@ -1453,15 +1398,10 @@ Når du har udfyldt registreringsblanketten får du en kvittering på mail, og i
                 </v-row>
                   
                </v-card>
-               
-              
-
                 
               </v-stepper-content>
             </v-stepper-items>
           </v-stepper>
-          
-          
 
         </v-row>
 
@@ -1501,7 +1441,6 @@ Når du har udfyldt registreringsblanketten får du en kvittering på mail, og i
           <p>activity_selvproducere : {{ activity_selvproducere }}</p>
         </v-col>
       </v-row>
-      
       
     </v-card-text>
   </v-card>
